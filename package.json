@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/JYoung32/project-3#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.8.9"
   }
 }
