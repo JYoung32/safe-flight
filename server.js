@@ -10,8 +10,9 @@ const mongoose = require('mongoose');
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/project3",
   {
-    useMongoClient: true
-  }
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+    }
 );
 
 const PORT = process.env.PORT || 3001;
