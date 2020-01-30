@@ -4,8 +4,9 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import UserLogin from "./components/Login"
+import CreateUser from "./components/Login"
 import Navbar from "./components/Navigation";
+import SignIn from "./components/Signin"
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
       <Navbar />
       <br />
       <div className="container">
-        <Route path="/" exact component={UserLogin} />
+        <Route path="/" exact component={CreateUser} />
+        <Route path="/users/login" exact component={SignIn} />
       </div>
     </Router>
   );
