@@ -7,7 +7,7 @@ const Navigation = (props) => {
       <p>destination Estinmation</p>
       <Nav>
         <NavItem>
-          <NavLink href="#">Home</NavLink>
+          <NavLink href="/">Home</NavLink>
         </NavItem>
         <NavItem>
           <NavLink href="#">Current Trip</NavLink>
