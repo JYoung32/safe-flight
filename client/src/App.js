@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import UserLogin from "./components/Login"
-import Navbar from "./components/";
+import Navbar from "./components/Navigation";
 
 function App() {
   return (
@@ -13,10 +13,7 @@ function App() {
       <Navbar />
       <br />
       <div className="container">
-        <Route path="/" exact component={ExercisesList} />
-        <Route path="/edit/:id" component={EditExercises} />
-        <Route path="/create" component={CreateExercise} />
-        <Route path="/user" component={CreateUser} />
+        <Route path="/" exact component={UserLogin} />
       </div>
     </Router>
   );

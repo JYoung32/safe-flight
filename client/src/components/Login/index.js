@@ -1,7 +1,6 @@
 //Login component
 
 import React from "react";
-import Reactstrap from "reactstrap"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -22,8 +21,8 @@ function Login() {
                                 <input type="name" id="name" name="name" class="form-control" placeholder="Enter Name" value="" />
                             </div>
                             <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email" value="" />
+                                <label for="username">UserName</label>
+                                <input type="username" id="username" name="username" class="form-control" placeholder="Enter Username" value="" />
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
