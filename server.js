@@ -1,5 +1,14 @@
 const express = require('express');
+const passport = require('passport');
+require('dotenv').config()
+require('./models/Users');
+
 const app = express();
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+const router = require('./routes');
 
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
@@ -19,5 +28,11 @@ mongoose.connect(
     }
 );
 
+
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use('/', require('./routes'));
 const PORT = process.env.PORT || 3001;
 app.listen(PORT);
