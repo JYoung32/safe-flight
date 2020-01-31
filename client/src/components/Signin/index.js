@@ -9,26 +9,27 @@ function SignIn() {
         <div className="container">
             <div className="row mt-5">
                 <div className="col-md-6 m-auto">
-                    <div className="card card-body">
+                    <div className="card card-body mb-4">
                         <h1 className="text-center mb-3">
-                            <FontAwesomeIcon icon="user" />Sign In
+                            <FontAwesomeIcon icon="user" /> Sign In
                         </h1>
 
 
                         <form action="/users/register" method="POST">
                             <div className="form-group">
-                                <label for="username">UserName</label>
-                                <input type="username" id="username" name="username" className="form-control" placeholder="Enter Username" value="" />
+                                <label for="username">Username</label>
+                                <input type="username" id="username" name="username" className="form-control" placeholder="jjog" value="" />
                             </div>
                             <div className="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" id="password" name="password" className="form-control" placeholder="Create Password" value="" />
+                                <input type="password" id="password" name="password" className="form-control" placeholder="********" value="" />
                             </div>
-                            <button type="submit" className="btn btn-primary btn-block">
-                                Register
+                            <button type="submit" className="btn btn-primary btn-block mt-5">
+                                Sign In
                             </button>
                         </form>
-                        <p className="lead mt-4">Already have an account! <a href="/users/login">Login</a></p>
+                        <p className="mx-auto mt-3">Need an account?<a href="/"> Register</a></p>
+                        <p className="mx-auto"> Need help?<a href="#"> Click here</a></p>
                     </div>
                 </div>
             </div>
