@@ -1,34 +1,35 @@
-//Login component
+//Sign-in component
 
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 function SignIn() {
     return (
-        <div class="container">
-            <div class="row mt-5">
-                <div class="col-md-6 m-auto">
-                    <div class="card card-body">
-                        <h1 class="text-center mb-3">
-                            <i class="fas fa-user-plus"></i> Sign In
+        <div className="container">
+            <div className="row mt-5">
+                <div className="col-md-6 m-auto">
+                    <div className="card card-body">
+                        <h1 className="text-center mb-3">
+                            <FontAwesomeIcon icon="user" />Sign In
                         </h1>
 
 
                         <form action="/users/register" method="POST">
-                            <div class="form-group">
+                            <div className="form-group">
                                 <label for="username">UserName</label>
-                                <input type="username" id="username" name="username" class="form-control" placeholder="Enter Username" value="" />
+                                <input type="username" id="username" name="username" className="form-control" placeholder="Enter Username" value="" />
                             </div>
-                            <div class="form-group">
+                            <div className="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" id="password" name="password" class="form-control" placeholder="Create Password" value="" />
+                                <input type="password" id="password" name="password" className="form-control" placeholder="Create Password" value="" />
                             </div>
-                            <button type="submit" class="btn btn-primary btn-block">
+                            <button type="submit" className="btn btn-primary btn-block">
                                 Register
                             </button>
                         </form>
-                        <p class="lead mt-4">Already have an account! <a href="/users/login">Login</a></p>
+                        <p className="lead mt-4">Already have an account! <a href="/users/login">Login</a></p>
                     </div>
                 </div>
             </div>

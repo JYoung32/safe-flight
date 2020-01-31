@@ -1,5 +1,6 @@
 import React from 'react';
 import { Nav, NavItem, NavLink } from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Navigation = (props) => {
   return (
