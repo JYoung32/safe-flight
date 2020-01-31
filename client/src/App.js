@@ -7,9 +7,9 @@ import Navbar from "./components/Navigation";
 import SignIn from "./components/Signin"
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faCheckSquare, faPlane, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faCheckSquare, faPlane, faUser, faCalendarAlt, faHotel, faCarSide, faMoneyBillWave } from '@fortawesome/free-solid-svg-icons'
 
-library.add(fab, faCheckSquare, faPlane, faUser)
+library.add(fab, faCheckSquare, faPlane, faUser, faCalendarAlt, faHotel, faCarSide, faMoneyBillWave)
 
 
 
