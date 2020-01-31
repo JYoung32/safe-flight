@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-import { Nav, NavItem, NavLink } from 'reactstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-=======
 import React, { useState } from 'react';
 import {
     Collapse,
@@ -18,7 +13,7 @@ import {
     DropdownItem,
     NavbarText
 } from 'reactstrap';
->>>>>>> d91b3b11a7fc8a3b95c3989e1c0ecfc832a020c9
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Navigation = (props) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -28,6 +23,7 @@ const Navigation = (props) => {
     return (
         <div>
             <Navbar color="light" light expand="md">
+            <FontAwesomeIcon icon="map-marked-alt" />
                 <NavbarBrand href="/">Destination Estinmation</NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
@@ -36,7 +32,7 @@ const Navigation = (props) => {
                             <NavLink href="#">Home</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink href="#">Current Trip</NavLink>
+                            <NavLink href="#">Destinations</NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink href="#">Profile</NavLink>
