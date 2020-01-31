@@ -3,7 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import CreateUser from "./components/Login"
-import Navbar from "./components/Navigation";
+import Navbar from "./components/Navigation/Navbar.js";
 import SignIn from "./components/Signin"
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
