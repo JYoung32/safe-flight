@@ -6,6 +6,10 @@ import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'rea
 class FlightPage extends React.Component {
 
     state = {
+        origin: "",
+        destination: "",
+        departure: "",
+        return: ""
 
     };
 
@@ -38,8 +42,9 @@ class FlightPage extends React.Component {
 
                 </Jumbotron>
             </div>
+              
         );
-    };
-};
+      }
+    }
 
 export default FlightPage; 
