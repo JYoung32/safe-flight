@@ -24,7 +24,7 @@ const Navigation = (props) => {
         <div>
             <Navbar color="light" light expand="md">
             <FontAwesomeIcon icon="map-marked-alt" />
-                <NavbarBrand href="/">Destination Estinmation</NavbarBrand>
+                <NavbarBrand href="/">Destination Estimation</NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="ml-auto" navbar>
