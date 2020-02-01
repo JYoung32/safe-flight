@@ -29,10 +29,10 @@ const Navigation = (props) => {
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="ml-auto" navbar>
                         <NavItem>
-                            <NavLink href="#">Home</NavLink>
+                            <NavLink href="/">Home</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink href="#">Destinations</NavLink>
+                            <NavLink href="/flight">Flights</NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink href="#">Profile</NavLink>
