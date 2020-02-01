@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import CreateUser from "./components/Login"
 import Navbar from "./components/Navigation";
 import SignIn from "./components/Signin"
+import FlightPage from "./components/FlightPage";
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faCheckSquare, faPlane, faPlaneArrival, faPlaneDeparture, faCalculator,faCalendarAlt, faUser, faIdCard, faHotel, faCarSide, faMoneyBillWave,faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons'
@@ -17,11 +18,9 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <br />
-      <div className="container">
         <Route path="/" exact component={CreateUser} />
         <Route path="/users/login" exact component={SignIn} />
-      </div>
+        <Route path="/flight" exact component={FlightPage} />
     </Router>
   );
 }
