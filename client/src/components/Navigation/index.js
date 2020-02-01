@@ -13,6 +13,7 @@ import {
     DropdownItem,
     NavbarText
 } from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Navigation = (props) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -22,6 +23,7 @@ const Navigation = (props) => {
     return (
         <div>
             <Navbar color="light" light expand="md">
+            <FontAwesomeIcon icon="map-marked-alt" />
                 <NavbarBrand href="/">Destination Estinmation</NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
@@ -30,7 +32,7 @@ const Navigation = (props) => {
                             <NavLink href="#">Home</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink href="#">Current Trip</NavLink>
+                            <NavLink href="#">Destinations</NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink href="#">Profile</NavLink>
