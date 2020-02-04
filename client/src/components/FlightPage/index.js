@@ -1,17 +1,19 @@
 import React from "react";
 import { Jumbotron, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
+import API from "../../utils/API";
 
 
 class FlightPage extends React.Component {
 
-    // state = {
-    //     origin: "",
-    //     destination: "",
-    //     departure: "",
-    //     return: ""
+    state = {
+        origin: "",
+        destination: "",
+        departure: "",
+        return: "",
+        flights: []
 
-    // };
+     };
    
         constructor(props) {
             super(props);
@@ -35,6 +37,23 @@ class FlightPage extends React.Component {
              event.preventDefault();
               
             };
+
+    auth = () =>{
+        API.token()
+        .then(data =>console.log(data))
+        .catch(err => console.log(err))
+    }
+
+    loadFlights = () =>{  
+        API.getFlights()
+        .then(data => this.setState({flights: data}))
+        .catch(err => console.log(err));     
+    };
+    
+    componentDidMount(){
+        this.auth()
+        this.loadFlights();
+    };
 
     render() {
         return (
