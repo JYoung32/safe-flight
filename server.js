@@ -2,6 +2,7 @@ const express = require('express');
 const passport = require('passport');
 require('dotenv').config()
 require('./models/Users');
+const cors = require('cors');
 
 const app = express();
 
@@ -29,10 +30,11 @@ mongoose.connect(
 );
 
 
-
+app.use(cors()); //handles communication between react and server for data transfer
 app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', require('./routes'));
+app.use('/api', router);
 const PORT = process.env.PORT || 3001;
 app.listen(PORT);
