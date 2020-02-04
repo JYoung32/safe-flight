@@ -2,44 +2,57 @@ import React from "react";
 import { Jumbotron, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
 import API from "../../utils/API";
+import axios from 'axios';
 
 
 class FlightPage extends React.Component {
 
-    // state = {
-    //     origin: "",
-    //     destination: "",
-    //     departure: "",
-    //     return: "",
-    //     flights: []
+    state = {
+        origin: "",
+        destination: "",
+        departure: "",
+        return: "",
+        flights: []
+    };
 
-    //  };
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         value: '',
+    //         origin: "",
+    //         destination: "",
+    //         departure: "",
+    //         return: ""
+    //     };
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            value: '',
-            origin: "",
-            destination: "",
-            departure: "",
-            return: ""
-        };
+    // this.handleChange = this.handleChange.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
 
-    handleChange(event) {
+    handleChange = (event) => {
+        const target = event.target;
+        const name = target.name;
+        const value = target.value;
+
         this.setState({
-            origin: event.target.origin
+            [name]: value
         });
-    }
-
-    handleSubmit(event) {
-        // alert('A name was submitted: ' + this.state.value);
-        event.preventDefault();
 
     };
+
+    handleSubmit = () => {
+        event.preventDefault();
+
+        const payload = {
+            title: this.state.title,
+            body: this.state.body
+        }
+    }
+    // handleSubmit(event) {
+    //     // alert('A name was submitted: ' + this.state.value);
+    //     event.preventDefault();
+
+    // };
 
     // auth = () =>{
     //     API.token()
@@ -66,16 +79,30 @@ class FlightPage extends React.Component {
                     <hr className="my-2" />
                     <Form>
                         <div className="row">
-
                             <FormGroup className="col-md">
                                 <Label for="OriginAirport">Origin</Label>
-                                <Input type="text" name="origin" id="originAirport" placeholder="Airport you are leaving from" value={this.state.origin} onChange={this.handleChange} />
+                                <Input
+                                    type="text"
+                                    name="origin"
+                                    id="originAirport"
+                                    placeholder="Airport you are leaving from"
+                                    value={this.state.origin}
+                                    onChange={this.handleChange} 
+                                />
                             </FormGroup>
                             <FormGroup className="col-md">
                                 <Label for="DestinationAirport">Destination</Label>
-                                <Input type="text" name="destination" id="destinationAirport" placeholder="Destination you are traveling to" />
+                                <Input
+                                    type="text"
+                                    name="destination"
+                                    id="destinationAirport"
+                                    placeholder="Destination you are traveling to"
+                                    value={this.state.destination}
+                                    onChange={this.handleChange}
+                                />
                             </FormGroup>
                         </div>
+
                         <DateRangePicker className="m-3"
                             startDate={this.state.startDate} // momentPropTypes.momentObj or null,
                             startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
@@ -93,6 +120,6 @@ class FlightPage extends React.Component {
 
         );
     }
-}
+};
 
 export default FlightPage; 
