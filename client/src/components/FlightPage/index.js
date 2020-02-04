@@ -5,13 +5,36 @@ import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'rea
 
 class FlightPage extends React.Component {
 
-    state = {
-        origin: "",
-        destination: "",
-        departure: "",
-        return: ""
+    // state = {
+    //     origin: "",
+    //     destination: "",
+    //     departure: "",
+    //     return: ""
 
-    };
+    // };
+   
+        constructor(props) {
+            super(props);
+            this.state = {value: '',
+            origin: "",
+            destination: "",
+            departure: "",
+            return: ""};
+          
+            this.handleChange = this.handleChange.bind(this);
+            this.handleSubmit = this.handleSubmit.bind(this);
+          }
+          
+        handleChange(event) {
+            this.setState({
+               origin: event.target.origin });
+            }
+    
+        handleSubmit(event) {
+            // alert('A name was submitted: ' + this.state.value);
+             event.preventDefault();
+              
+            };
 
     render() {
         return (
@@ -21,8 +44,8 @@ class FlightPage extends React.Component {
                     <hr className="my-2" />
                     <Form>
                         <FormGroup>
-                            <Label for="DepartureAirport">Departure</Label>
-                            <Input type="text" name="email" id="departureAirport" placeholder="Airport you are leaving from" />
+                            <Label for="OriginAirport">Origin</Label>
+                            <Input type="text" name="email" id="originAirport" placeholder="Airport you are leaving from" value={this.state.origin} onChange={this.handleChange} />
                         </FormGroup>
                         <FormGroup>
                             <Label for="DestinationAirport">Destination</Label>
