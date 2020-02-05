@@ -53,6 +53,7 @@ export default {
         
     },
 
+    //returning as undefined
     getFlights: function () {
     return axios
         .get("https://test.api.amadeus.com/v1/shopping/flight-offers?origin=NYC&destination=MAD&departureDate=2020-10-01&max=2")

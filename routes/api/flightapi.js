@@ -1,9 +1,9 @@
 const axios = require("axios");
 const router = require("express").Router();
 
-router.get('/api/flight')
-  .then(console.log("hello router"));
-    //data => data);
+// router.get('/api/flight')
+//   .then(console.log("hello router"));
+//     //data => data);
 
 
 router.post('/api/flight', (req,res) => {
