@@ -54,9 +54,9 @@ export default {
     },
 
     //returning as undefined
-    getFlights: function () {
+    getFlights: function (origin, destination, departure) {
     return axios
-        .get("https://test.api.amadeus.com/v1/shopping/flight-offers?origin=NYC&destination=MAD&departureDate=2020-10-01&max=2")
+        .get(`https://test.api.amadeus.com/v1/shopping/flight-offers?origin=${origin}&destination=${destination}&departureDate=${departure}`)
         .then(({ data: { results } }) => console.log(results))
         .catch(err =>console.log(err));
   }
