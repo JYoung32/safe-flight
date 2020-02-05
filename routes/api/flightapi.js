@@ -2,7 +2,6 @@ const axios = require("axios");
 const router = require("express").Router();
 
 
-<<<<<<< HEAD
 
 
 router.get("/shopping-flightoffers", (req, res) => {
@@ -14,7 +13,8 @@ router.get("/shopping-flightoffers", (req, res) => {
 
 
 router.get('/api/flight')
-  .then(data => data);
+  .then(console.log("hello router"));
+    //data => data);
 
 
 router.post('/api/flight', (req,res) => {
@@ -52,6 +52,3 @@ module.exports = router;
     //     "state": "approved",
     //     "scope": ""
     // }
-=======
-module.exports = router;
->>>>>>> 0b917f706c5703edc83e021fda3fa820cd430550
