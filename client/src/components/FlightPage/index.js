@@ -2,6 +2,7 @@ import React from "react";
 import { Jumbotron, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
 import API from "../../utils/API";
+import axios from 'axios';
 
 
 class FlightPage extends React.Component {
@@ -12,24 +13,73 @@ class FlightPage extends React.Component {
         departure: "",
         return: "",
         flights: []
+    };
+
+    handleChange = (event) => {
+        const target = event.target;
+        const name = target.name;
+        const value = target.value;
+
+        this.setState({
+            [name]: value
+        });
 
     };
 
+    handleSubmit = (event) => {
+        event.preventDefault();
+        console.log("hello handle submit click");
+        //payload of the flight info entered
+        const payload = {
+            origin: this.state.origin,
+            destination: this.state.destination
+        };
+        //console.log(payload);
+
+        axios({
+            url: '/api/flight',
+            method: 'POST',
+            data: payload
+        })
+            .then(() => {
+                console.log('The payload has been sent to the server, suckah!');
+            })
+            .catch(() => {
+                console.log('Error sending the payload to the server')
+            });;
+    };
     render() {
         return (
-            <div className="container mt-3">
-                <Jumbotron>
+            <div className="container">
+                <Jumbotron className="mt-3 text-center">
                     <h1 className="display-3">Search for Flights</h1>
                     <hr className="my-2" />
                     <Form>
-                        <FormGroup>
-                            <Label for="DepartureAirport">Departure</Label>
-                            <Input type="text" name="email" id="departureAirport" placeholder="Airport you are leaving from" />
-                        </FormGroup>
-                        <FormGroup>
-                            <Label for="DestinationAirport">Destination</Label>
-                            <Input type="text" name="email" id="destinationAirport" placeholder="Destination you are traveling to" />
-                        </FormGroup>
+                        <div className="row">
+                            <FormGroup className="col-md">
+                                <Label for="OriginAirport">Origin</Label>
+                                <Input
+                                    type="text"
+                                    name="origin"
+                                    id="originAirport"
+                                    placeholder="Airport you are leaving from"
+                                    value={this.state.origin}
+                                    onChange={this.handleChange}
+                                />
+                            </FormGroup>
+                            <FormGroup className="col-md" >
+                                <Label for="DestinationAirport">Destination</Label>
+                                <Input
+                                    type="text"
+                                    name="destination"
+                                    id="destinationAirport"
+                                    placeholder="Destination you are traveling to"
+                                    value={this.state.destination}
+                                    onChange={this.handleChange}
+                                />
+                            </FormGroup>
+                        </div>
+
                         <DateRangePicker
                             startDate={this.state.startDate} // momentPropTypes.momentObj or null,
                             startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
@@ -40,13 +90,18 @@ class FlightPage extends React.Component {
                             onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
                         />
                     </Form>
-                    <Button color="primary">Search Flights</Button>
+                    <Button
+                        onClick={this.handleSubmit}
+                        className="m-3"
+                        color="primary">
+                        Search Flights
+                    </Button>
 
                 </Jumbotron>
             </div>
-              
+
         );
-      }
     }
+};
 
 export default FlightPage; 

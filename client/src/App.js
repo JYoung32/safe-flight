@@ -7,7 +7,7 @@ import Navbar from "./components/Navigation";
 import SignIn from "./components/Signin"
 import FlightPage from "./components/FlightPage";
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { fab } from '@fortawesome/free-brands-svg-icons'
+//import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faCheckSquare, faPlane, faPlaneArrival, faPlaneDeparture, faCalculator,faCalendarAlt, faUser, faIdCard, faHotel, faCarSide, faMoneyBillWave,faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons'
 import API from "./utils/API"
 
@@ -17,7 +17,7 @@ library.add(faCheckSquare, faPlane, faPlaneArrival, faPlaneDeparture, faCalculat
 
 function App() {
   API.validateToken(function(){
-    console.log('done');
+    console.log('Token Validation processed');
     API.getFlights();
   })
   return (

@@ -8,7 +8,7 @@
     "start": "node server.js",
     "client": "npm run start --prefix client",
     "install": "cd client && npm install",
-    "dev": "concurrently \"npm run start\" \"npm run client\"",
+    "dev": "concurrently -n 'server,client' -c 'red,green' \"npm run start\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
@@ -27,11 +27,13 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "concurrently": "^5.0.2",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-jwt": "^5.3.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.8.9",
+    "nodemon": "^2.0.2",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "path": "^0.12.7"
