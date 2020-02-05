@@ -15,23 +15,6 @@ class FlightPage extends React.Component {
 
     };
 
-    auth = () =>{
-        API.token()
-        .then(data =>console.log(data))
-        .catch(err => console.log(err))
-    }
-
-    loadFlights = () =>{  
-        API.getFlights()
-        .then(data => this.setState({flights: data}))
-        .catch(err => console.log(err));     
-    };
-    
-    componentDidMount(){
-        this.auth()
-        this.loadFlights();
-    };
-
     render() {
         return (
             <div className="container mt-3">

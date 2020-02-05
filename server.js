@@ -8,8 +8,6 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const router = require('./routes');
-
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
     const path = require('path');
@@ -27,7 +25,6 @@ mongoose.connect(
     useUnifiedTopology: true
     }
 );
-
 
 
 app.use(passport.initialize());
