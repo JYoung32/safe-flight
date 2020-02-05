@@ -56,8 +56,17 @@ export default {
     //returning as undefined
     getFlights: function (origin, destination, departure) {
     return axios
-        .get(`https://test.api.amadeus.com/v1/shopping/flight-offers?origin=${origin}&destination=${destination}&departureDate=${departure}`)
+        .get(`https://test.api.amadeus.com/v1/shopping/flight-offers?origin=EWR&destination=LAX&departureDate=2020/02/14`)
         .then(({ data: { results } }) => console.log(results))
         .catch(err =>console.log(err));
   }
 };
+
+//api year format yyyy/mm/dd
+
+// getFlights: function (origin, destination, departure) {
+//     return axios
+//         .get(`https://test.api.amadeus.com/v1/shopping/flight-offers?origin=${origin}&destination=${destination}&departureDate=${departure}`)
+//         .then(({ data: { results } }) => console.log(results))
+//         .catch(err =>console.log(err));
+//   }
