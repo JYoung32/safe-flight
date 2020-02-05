@@ -1,8 +1,8 @@
 import axios from "axios";
 import qs from "qs";
 
-const clientID = process.env.REACT_APP_clientId;
-const secret = process.env.REACT_APP_secret;
+const clientID = process.env.REACT_APP_API_KEY;
+const secret = process.env.REACT_APP_API_SECRET;
 
 //if the access token exists get the 
 

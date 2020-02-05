@@ -15,6 +15,7 @@ class FlightPage extends React.Component {
         flights: []
     };
 
+<<<<<<< HEAD
     handleChange = (event) => {
         const target = event.target;
         const name = target.name;
@@ -48,6 +49,8 @@ class FlightPage extends React.Component {
                 console.log('Error sending the payload to the server')
             });;
     };
+=======
+>>>>>>> 0b917f706c5703edc83e021fda3fa820cd430550
     render() {
         return (
             <div className="container">
