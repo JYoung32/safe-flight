@@ -37,17 +37,13 @@ class FlightPage extends React.Component {
         };
         //console.log(payload);
 
-        axios({
-            url: '/api/flight',
-            method: 'POST',
-            data: payload
-        })
-            .then(() => {
-                console.log('The payload has been sent to the server, suckah!');
-            })
-            .catch(() => {
-                console.log('Error sending the payload to the server')
-            });;
+    //     API.getFlights(origin, destination, departure)
+    //         .then(res => {
+    //             console.log(res);
+    //         })
+    //         .catch(() => {
+    //             console.log('Error sending the payload to the server')
+    //         });;
     };
     render() {
         return (
