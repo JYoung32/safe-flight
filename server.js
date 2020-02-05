@@ -9,7 +9,6 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const router = require('./routes');
 
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
@@ -19,6 +18,8 @@ if (process.env.NODE_ENV === "production") {
     });
   }
 
+
+//connect to our mongoDB and log it to the console
 const mongoose = require('mongoose');
 
 mongoose.connect(
@@ -26,8 +27,11 @@ mongoose.connect(
   {
     useNewUrlParser: true,
     useUnifiedTopology: true
-    }
-);
+    });
+
+mongoose.connection.on('connected', () =>{
+  console.log('Mongoose is connected.');
+})
 
 
 app.use(cors()); //handles communication between react and server for data transfer
@@ -35,6 +39,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', require('./routes'));
-app.use('/api', router);
+
 const PORT = process.env.PORT || 3001;
 app.listen(PORT);

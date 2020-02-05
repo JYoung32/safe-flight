@@ -15,20 +15,6 @@ class FlightPage extends React.Component {
         flights: []
     };
 
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         value: '',
-    //         origin: "",
-    //         destination: "",
-    //         departure: "",
-    //         return: ""
-    //     };
-
-    // this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
-
-
     handleChange = (event) => {
         const target = event.target;
         const name = target.name;
@@ -42,15 +28,16 @@ class FlightPage extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
+        console.log("hello handle submit click");
         //payload of the flight info entered
-        const payload = {  
+        const payload = {
             origin: this.state.origin,
             destination: this.state.destination
         };
-
+        //console.log(payload);
 
         axios({
-            url: 'http://localhost:3001/api/flight',
+            url: '/api/flight',
             method: 'POST',
             data: payload
         })
@@ -60,30 +47,7 @@ class FlightPage extends React.Component {
             .catch(() => {
                 console.log('Error sending the payload to the server')
             });;
-    }
-    // handleSubmit(event) {
-    //     // alert('A name was submitted: ' + this.state.value);
-    //     event.preventDefault();
-
-    // };
-
-    // auth = () =>{
-    //     API.token()
-    //     .then(data =>console.log(data))
-    //     .catch(err => console.log(err))
-    // }
-
-    // loadFlights = () =>{  
-    //     API.getFlights()
-    //     .then(data => this.setState({flights: data}))
-    //     .catch(err => console.log(err));     
-    // };
-
-    // componentDidMount(){
-    //     this.auth()
-    //     this.loadFlights();
-    // };
-
+    };
     render() {
         return (
             <div className="container">
@@ -92,7 +56,7 @@ class FlightPage extends React.Component {
                     <hr className="my-2" />
                     <Form>
                         <div className="row">
-                            <FormGroup className="col-md" onSubmit={this.handleSubmit}>
+                            <FormGroup className="col-md">
                                 <Label for="OriginAirport">Origin</Label>
                                 <Input
                                     type="text"
@@ -116,7 +80,7 @@ class FlightPage extends React.Component {
                             </FormGroup>
                         </div>
 
-                        <DateRangePicker 
+                        <DateRangePicker
                             startDate={this.state.startDate} // momentPropTypes.momentObj or null,
                             startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
                             endDate={this.state.endDate} // momentPropTypes.momentObj or null,
@@ -126,11 +90,11 @@ class FlightPage extends React.Component {
                             onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
                         />
                     </Form>
-                    <Button 
-                        onSubmit={this.handleSubmit} 
-                        className="m-3" 
+                    <Button
+                        onClick={this.handleSubmit}
+                        className="m-3"
                         color="primary">
-                            Search Flights
+                        Search Flights
                     </Button>
 
                 </Jumbotron>
