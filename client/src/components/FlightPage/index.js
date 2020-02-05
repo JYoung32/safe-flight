@@ -3,6 +3,7 @@ import { Jumbotron, Button, Form, FormGroup, Label, Input, FormText } from 'reac
 import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
 import API from "../../utils/API";
 import axios from 'axios';
+import FlightCard from  '../FlightCard'
 
 
 class FlightPage extends React.Component {
@@ -98,6 +99,9 @@ class FlightPage extends React.Component {
                     </Button>
 
                 </Jumbotron>
+
+                <FlightCard />
+                <FlightCard />
             </div>
 
         );
