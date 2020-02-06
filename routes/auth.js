@@ -18,6 +18,19 @@ router.post("/register", function(req, res){
 		user.hash = undefined;
 		return res.json({token:user.generateJWT(), user:user});
 	});
-})
+});
+
+router.post('/login',function(req,res,next){
+	passport.authenticate('local',function(err, user, info){
+		if(err){
+            return next(err);
+        }
+        if(user){
+            return res.json({token: user.generateJWT(), user: user});
+        }else{
+            return res.status(401).json({message: info.message});
+        }
+	})(req,res,next);
+});
 
 module.exports = router;
