@@ -66,3 +66,12 @@ export default {
         .catch(err =>console.log(err));
   }
 };
+
+//api year format yyyy/mm/dd
+
+// getFlights: function (origin, destination, departure) {
+//     return axios
+//         .get(`https://test.api.amadeus.com/v1/shopping/flight-offers?origin=${origin}&destination=${destination}&departureDate=${departure}`)
+//         .then(({ data: { results } }) => console.log(results))
+//         .catch(err =>console.log(err));
+//   }

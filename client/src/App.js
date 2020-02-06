@@ -6,10 +6,12 @@ import CreateUser from "./components/Login"
 import Navbar from "./components/Navigation";
 import SignIn from "./components/Signin"
 import FlightPage from "./components/FlightPage";
+import FlightDynamic from "./components/FlightDynamic";
 import { library } from '@fortawesome/fontawesome-svg-core'
 //import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faCheckSquare, faPlane, faPlaneArrival, faPlaneDeparture, faCalculator,faCalendarAlt, faUser, faIdCard, faHotel, faCarSide, faMoneyBillWave,faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons'
 import API from "./utils/API"
+import FlightCard from './components/FlightCard';
 
 library.add(faCheckSquare, faPlane, faPlaneArrival, faPlaneDeparture, faCalculator,faCalendarAlt, faUser, faIdCard, faHotel, faCarSide, faMoneyBillWave,faMapMarkedAlt)
 
