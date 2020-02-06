@@ -59,7 +59,7 @@ export default {
 //         .catch(err =>console.log(err));
 //   },
 
-  testFlights: function () {
+    testFlights: function () {
     return axios
         .get(`https://test.api.amadeus.com/v1/shopping/flight-offers?origin=EWR&destination=LAX&departureDate=2020-02-14&returnDate=2020-02-21&currency=USD`)
         .then(({ data }) => console.log(data.data))
