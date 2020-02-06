@@ -11,7 +11,7 @@ class FlightPage extends React.Component {
         origin: "",
         destination: "",
         departure: "",
-        return: "",
+        returnDate: "",
         flights: []
     };
 
@@ -32,9 +32,11 @@ class FlightPage extends React.Component {
         //payload of the flight info entered
         const payload = {
             origin: this.state.origin,
-            destination: this.state.destination
+            destination: this.state.destination,
+            departure: this.state.startDate,
+            returnDate: this.state.endDate
         };
-        //console.log(payload);
+        console.log(payload);
 
     //     API.getFlights(origin, destination, departure)
     //         .then(res => {
