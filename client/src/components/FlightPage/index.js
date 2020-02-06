@@ -3,6 +3,8 @@ import { Jumbotron, Button, Form, FormGroup, Label, Input, FormText } from 'reac
 import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
 import API from "../../utils/API";
 import axios from 'axios';
+var moment = require('moment');
+moment().format();
 
 
 class FlightPage extends React.Component {
@@ -33,26 +35,26 @@ class FlightPage extends React.Component {
         const payload = {
             origin: this.state.origin,
             destination: this.state.destination,
-            departure: this.state.startDate,
-            returnDate: this.state.endDate
+            departure: this.state.startDate.format("YYYY-MM-DD"),
+            returnDate: this.state.endDate.format("YYYY-MM-DD")
         };
         console.log(payload);
 
-    //     API.getFlights(origin, destination, departure)
-    //         .then(res => {
-    //             console.log(res);
-    //         })
-    //         .catch(() => {
-    //             console.log('Error sending the payload to the server')
-    //         });;
-
-        API.testFlights()
+        API.getFlights(payload.origin, payload.destination, payload.departure, payload.returnDate)
             .then(res => {
-                console.log(res.data);
+                console.log(res);
             })
             .catch(() => {
                 console.log('Error sending the payload to the server')
             });;
+
+        // API.testFlights()
+        //     .then(res => {
+        //         console.log(res.data);
+        //     })
+        //     .catch(() => {
+        //         console.log('Error sending the payload to the server')
+        //     });;
 
 
     };
