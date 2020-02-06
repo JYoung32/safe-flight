@@ -20,7 +20,7 @@ library.add(faCheckSquare, faPlane, faPlaneArrival, faPlaneDeparture, faCalculat
 function App() {
   API.validateToken(function(){
     console.log('Token Validation processed');
-    // API.getFlights();
+    // API.getHotel();
   })
   return (
     <Router>

@@ -39,24 +39,27 @@ class FlightPage extends React.Component {
         };
         console.log(payload);
 
+        API.getHotel(payload.destination, payload.departure, payload.returnDate)
+            .then(res => {
+                console.log(res);
+            })
+            .catch(() => {
+                console.log('Error sending the payload to the server')
+            });
+
         API.getFlights(payload.origin, payload.destination, payload.departure, payload.returnDate)
             .then(res => {
                 console.log(res);
             })
             .catch(() => {
                 console.log('Error sending the payload to the server')
-            });;
-
-        // API.testFlights()
-        //     .then(res => {
-        //         console.log(res.data);
-        //     })
-        //     .catch(() => {
-        //         console.log('Error sending the payload to the server')
-        //     });;
-
-
+            });
     };
+
+
+
+
+    
     render() {
         return (
             <div className="container">

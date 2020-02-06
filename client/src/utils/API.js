@@ -59,6 +59,17 @@ export default {
         .catch(err =>console.log(err));
   },
 
+  getHotel: function (destination, departure, returnDate) {
+    return axios
+        .get(`https://test.api.amadeus.com/v2/shopping/hotel-offers?cityCode=${destination}&checkInDate=${departure}&checkOutDate=${returnDate}&radius=100&radiusUnit=KM`)
+        .then(({ data }) => console.log(data))
+        .catch(err =>console.log(err));
+  }
+
+
+
+
+
 //   testFlights: function () {
 //     return axios
 //         .get(`https://test.api.amadeus.com/v1/shopping/flight-offers?origin=EWR&destination=LAX&departureDate=2020-02-14&returnDate=2020-02-21&currency=USD&nonStop=true&max=10`)
