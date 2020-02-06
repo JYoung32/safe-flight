@@ -22,9 +22,11 @@ class Register extends React.Component {
         });
     };
 
+    //make if statement to check confirm PW against PW to then submit
     handleSubmit = (event) => {
         event.preventDefault();
         console.log("Submit button clicked");
+        //payload need password
         const payload = {
             fullName: this.state.fullName,
             email: this.state.email,
