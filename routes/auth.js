@@ -20,6 +20,7 @@ router.post("/register", function(req, res){
 });
 
 router.post('/login',function(req,res,next){
+	console.log("in server login route");
 	passport.authenticate('local',function(err, user, info){
 		if(err){
             return next(err);

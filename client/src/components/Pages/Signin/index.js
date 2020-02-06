@@ -32,7 +32,9 @@ class SignIn extends React.Component {
         }
 
         console.log(payload);
-        API.loginUser(payload);
+        API.loginUser(payload)
+        // .then(response => 
+        //     console.log(response));
 
         //create route to access db and let user sign in
 

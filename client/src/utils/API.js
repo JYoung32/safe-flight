@@ -62,7 +62,7 @@ export default {
 
     loginUser: function (payload) {
         axios.post("/auth/login", payload)
-        .then(console.log('successful login'))
+        .then(data => console.log(data))
         .catch(err => console.log(err));
     },
 

@@ -5,6 +5,7 @@ require('./models/Users');
 const cors = require('cors');
 
 const app = express();
+require('./config/passport')(passport);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -33,9 +34,10 @@ mongoose.connect(
 })
 
 
-// app.use(cors()); //handles communication between react and server for data transfer
+app.use(cors()); //handles communication between react and server for data transfer
 app.use(passport.initialize());
 app.use(passport.session());
+
 
 app.use('/', require('./routes'));
 
