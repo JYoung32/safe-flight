@@ -33,7 +33,7 @@ mongoose.connect(
 })
 
 
-app.use(cors()); //handles communication between react and server for data transfer
+// app.use(cors()); //handles communication between react and server for data transfer
 app.use(passport.initialize());
 app.use(passport.session());
 
