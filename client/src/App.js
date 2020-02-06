@@ -20,7 +20,11 @@ library.add(faCheckSquare, faPlane, faPlaneArrival, faPlaneDeparture, faCalculat
 function App() {
   API.validateToken(function(){
     console.log('Token Validation processed');
+<<<<<<< HEAD
     //API.testFlights();
+=======
+    // API.getFlights();
+>>>>>>> a3134ef312a794786f09c829c0b95a2e57781267
   })
   return (
     <Router>
