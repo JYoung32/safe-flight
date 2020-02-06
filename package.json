@@ -8,7 +8,7 @@
     "start": "node server.js",
     "client": "npm run start --prefix client",
     "install": "cd client && npm install",
-    "dev": "concurrently -n 'server,client' -c 'red,green' \"npm run start\" \"npm run client\"",
+    "dev": "concurrently -n 'server,client' -c 'red,green' \"nodemon server.js\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
@@ -34,9 +34,11 @@
     "jsonwebtoken": "^8.5.1",
     "momentjs": "^2.0.0",
     "mongoose": "^5.8.9",
-    "nodemon": "^2.0.2",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   }
 }
