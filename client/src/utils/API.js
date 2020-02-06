@@ -34,7 +34,7 @@ export default {
         const access_token = localStorage.getItem('access_token');
         if(access_token){
             axios.get('https://test.api.amadeus.com/v1/security/oauth2/token/'  +access_token)
-            .then(function(data){
+            .then((data) => {
                 if(data.data.state !== 'approved'){
                     this.getToken();
                 }else{
@@ -49,8 +49,6 @@ export default {
             this.getToken();
             cb('done');
         }
-        
-        
     },
 
     //returning as undefined
