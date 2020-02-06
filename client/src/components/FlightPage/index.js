@@ -43,6 +43,16 @@ class FlightPage extends React.Component {
     //         .catch(() => {
     //             console.log('Error sending the payload to the server')
     //         });;
+
+        API.testFlights()
+            .then(res => {
+                console.log(res.data);
+            })
+            .catch(() => {
+                console.log('Error sending the payload to the server')
+            });;
+
+
     };
     render() {
         return (
