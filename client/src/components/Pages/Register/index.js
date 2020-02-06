@@ -3,6 +3,7 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Card, CardBody, Container, Input, Form, FormGroup, Label } from 'reactstrap';
+import API from '../../../utils/API'
 
 class Register extends React.Component {
 
@@ -39,6 +40,7 @@ class Register extends React.Component {
             console.log("matched");
             console.log(payload);
 
+            API.registerUser(payload);
             //then response
             //save JWToken in localstorage
 

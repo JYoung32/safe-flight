@@ -75,7 +75,7 @@ class SignIn extends React.Component {
                                         Sign In
                                 </Button>
                                 </Form>
-                                <p className="mx-auto mt-3">Need an account?<a href="/"> Register</a></p>
+                                <p className="mx-auto mt-3 text-center">Need an account?<a href="/"> Register</a></p>
                                 {/* <p className="mx-auto"> Need help?<a href="#"> Click here</a></p> */}
                             </CardBody>
                         </Card>
