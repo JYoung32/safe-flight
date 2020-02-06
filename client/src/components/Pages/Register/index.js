@@ -9,7 +9,8 @@ class Register extends React.Component {
     state = {
         fullName: "",
         email: "",
-        password: ""
+        password: "",
+        confirmPassword: ""
     };
 
     handleChange = (event) => {
@@ -23,15 +24,27 @@ class Register extends React.Component {
     };
 
     //make if statement to check confirm PW against PW to then submit
+    
     handleSubmit = (event) => {
         event.preventDefault();
         console.log("Submit button clicked");
-        //payload need password
+        const password = this.state.password;
+        const confirmPassword = this.state.confirmPassword;
         const payload = {
             fullName: this.state.fullName,
             email: this.state.email,
+            password: this.state.password
         };
-        console.log(payload);
+        if(password === confirmPassword){
+            //Post route to save new registered user
+            console.log("matched");
+            console.log(payload);
+        } else {
+            //error on password not matching
+            console.log("Not matched");
+        }
+        //then response
+        //save JWToken in localstorage
     }
 
 
@@ -67,13 +80,15 @@ class Register extends React.Component {
                                     <FormGroup>
                                         <Label for="password">Password</Label>
                                         <Input type="password" id="password" name="password" className="form-control text-center" placeholder="Create Password"
-                                        //value=""
+                                        value={this.state.password}
+                                        onChange={this.handleChange}
                                         ></Input>
                                     </FormGroup>
                                     <FormGroup>
-                                        <Label for="password2">Confirm Password</Label>
-                                        <Input type="password" id="password2" name="password2" className="form-control text-center" placeholder="Confirm Password"
-                                        //value="" 
+                                        <Label for="confirmPassword">Confirm Password</Label>
+                                        <Input type="password" id="confirmPassword" name="confirmPassword" className="form-control text-center" placeholder="Confirm Password"
+                                        value={this.state.confirmPassword}
+                                        onChange={this.handleChange} 
                                         ></Input>
                                     </FormGroup>
                                     <Button type="submit" className="btn btn-primary btn-block mt-5"
