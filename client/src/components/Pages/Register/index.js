@@ -62,7 +62,7 @@ class Register extends React.Component {
                             </h1>
 
 
-                                <Form className="text-center">
+                                <Form>
                                     <FormGroup>
                                         <Label for="fullName">Full Name</Label>
                                         <Input type="text" 
