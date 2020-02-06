@@ -57,6 +57,7 @@ export default {
         .get(`https://test.api.amadeus.com/v1/shopping/flight-offers?origin=${origin}&destination=${destination}&departureDate=${departure}&returnDate=${returnDate}&currency=USD`)
         .then(({ data }) => console.log(data))
         .catch(err =>console.log(err));
+<<<<<<< HEAD
   },
 
 //   testFlights: function () {
@@ -66,3 +67,16 @@ export default {
 //         .catch(err =>console.log(err));
 //   }
 };
+=======
+  }
+};
+
+//api year format yyyy/mm/dd
+
+// getFlights: function (origin, destination, departure) {
+//     return axios
+//         .get(`https://test.api.amadeus.com/v1/shopping/flight-offers?origin=${origin}&destination=${destination}&departureDate=${departure}`)
+//         .then(({ data: { results } }) => console.log(results))
+//         .catch(err =>console.log(err));
+//   }
+>>>>>>> 201b7c5239136d71c9b589b8801d28b86a9f46a3
