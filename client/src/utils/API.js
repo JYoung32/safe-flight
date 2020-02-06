@@ -52,18 +52,22 @@ export default {
     },
 
     //returning as undefined
-//     getFlights: function (origin, destination, departure, returnDate) {
-//     return axios
-//         .get(`https://test.api.amadeus.com/v1/shopping/flight-offers?origin=${origin}&destination=${destination}&departureDate=${departure}&returnDate=${returnDate}&currency=USD`)
-//         .then(({ data: { results } }) => console.log(results))
-//         .catch(err =>console.log(err));
-//   },
-
-  testFlights: function () {
+    getFlights: function (origin, destination, departure, returnDate) {
     return axios
-        .get(`https://test.api.amadeus.com/v1/shopping/flight-offers?origin=EWR&destination=LAX&departureDate=2020-02-14&returnDate=2020-02-21&currency=USD&nonStop=true&max=10`)
-        .then(({ data }) => console.log(data.data))
+        .get(`https://test.api.amadeus.com/v1/shopping/flight-offers?origin=${origin}&destination=${destination}&departureDate=${departure}&returnDate=${returnDate}&currency=USD`)
+        .then(({ data }) => console.log(data))
         .catch(err =>console.log(err));
+<<<<<<< HEAD
+  },
+
+//   testFlights: function () {
+//     return axios
+//         .get(`https://test.api.amadeus.com/v1/shopping/flight-offers?origin=EWR&destination=LAX&departureDate=2020-02-14&returnDate=2020-02-21&currency=USD&nonStop=true&max=10`)
+//         .then(({ data }) => console.log(data.data))
+//         .catch(err =>console.log(err));
+//   }
+};
+=======
   }
 };
 
@@ -75,3 +79,4 @@ export default {
 //         .then(({ data: { results } }) => console.log(results))
 //         .catch(err =>console.log(err));
 //   }
+>>>>>>> 201b7c5239136d71c9b589b8801d28b86a9f46a3
