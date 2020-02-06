@@ -26,9 +26,9 @@ mongoose.connect(
   {
     useNewUrlParser: true,
     useUnifiedTopology: true
-    });
+  });
 
-mongoose.connection.on('connected', () =>{
+  mongoose.connection.on('connected', () => {
   console.log('Mongoose is connected.');
 })
 

@@ -32,6 +32,7 @@ export default {
                 return err
             })
     },
+    
     validateToken: function(cb){
         const access_token = localStorage.getItem('access_token');
         if(access_token){
@@ -58,5 +59,12 @@ export default {
         .get(`https://test.api.amadeus.com/v1/shopping/flight-offers?origin=${origin}&destination=${destination}&departureDate=${departure}&returnDate=${returnDate}&currency=USD`)
         .then(({ data }) => console.log(data))
         .catch(err =>console.log(err));
-  }
-};
+    },
+
+    getHotel: function (destination, departure, returnDate) {
+        return axios
+            .get(`https://test.api.amadeus.com/v2/shopping/hotel-offers?cityCode=${destination}&checkInDate=${departure}&checkOutDate=${returnDate}&radius=100&radiusUnit=KM`)
+            .then(({ data }) => console.log(data))
+            .catch(err =>console.log(err));
+    }
+}

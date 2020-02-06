@@ -38,6 +38,9 @@ class Register extends React.Component {
             //Post route to save new registered user
             console.log("matched");
             console.log(payload);
+
+            
+
         } else {
             //error on password not matching
             console.log("Not matched");
