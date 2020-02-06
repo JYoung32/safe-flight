@@ -3,12 +3,7 @@ import { Jumbotron, Button, Form, FormGroup, Label, Input, FormText } from 'reac
 import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
 import API from "../../utils/API";
 import axios from 'axios';
-<<<<<<< HEAD
-var moment = require('moment');
-moment().format();
-=======
 import FlightCard from  '../FlightCard'
->>>>>>> 201b7c5239136d71c9b589b8801d28b86a9f46a3
 
 
 class FlightPage extends React.Component {
