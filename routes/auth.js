@@ -7,8 +7,7 @@ const User = require('../models/Users');
 
 router.post("/register", function(req, res){
     let user = new User();
-	user.firstName = req.body.firstName;
-	user.lastName = req.body.lastName;
+	user.fullName = req.body.fullName;
 	user.email = req.body.email;
 	user.setPassword(req.body.password);
 	user.save(function(err,user){

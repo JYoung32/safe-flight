@@ -28,14 +28,13 @@ class Register extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault();
         console.log("Submit button clicked");
-        const password = this.state.password;
         const confirmPassword = this.state.confirmPassword;
         const payload = {
             fullName: this.state.fullName,
             email: this.state.email,
             password: this.state.password
         };
-        if(password === confirmPassword){
+        if(payload.password === confirmPassword){
             //Post route to save new registered user
             console.log("matched");
             console.log(payload);

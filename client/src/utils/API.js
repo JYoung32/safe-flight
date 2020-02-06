@@ -1,19 +1,21 @@
+//importing dependencies
 import axios from "axios";
 import qs from "qs";
 
+//setting up environment variables
 const clientID = process.env.REACT_APP_API_KEY;
-const secret = process.env.REACT_APP_API_SECRET;
+const secret = process.env.REACT_APP_API_SECRET; 
 
-//if the access token exists get the 
-
+//setting up our axios header information
 let data = {
-
     "grant_type":"client_credentials",
     "client_id": clientID,
-    "client_secret": secret
-        
+    "client_secret": secret        
 }
+
+//using qs library to stringify our header information
 data = qs.stringify(data);
+
 export default {
     getToken: function (){
         axios({
@@ -51,7 +53,6 @@ export default {
         }
     },
 
-    //returning as undefined
     getFlights: function (origin, destination, departure, returnDate) {
     return axios
         .get(`https://test.api.amadeus.com/v1/shopping/flight-offers?origin=${origin}&destination=${destination}&departureDate=${departure}&returnDate=${returnDate}&currency=USD`)
@@ -59,12 +60,3 @@ export default {
         .catch(err =>console.log(err));
   }
 };
-
-//api year format yyyy/mm/dd
-
-// getFlights: function (origin, destination, departure) {
-//     return axios
-//         .get(`https://test.api.amadeus.com/v1/shopping/flight-offers?origin=${origin}&destination=${destination}&departureDate=${departure}`)
-//         .then(({ data: { results } }) => console.log(results))
-//         .catch(err =>console.log(err));
-//   }
