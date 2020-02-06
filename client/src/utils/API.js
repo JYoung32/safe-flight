@@ -60,6 +60,12 @@ export default {
         .catch(err => console.log(err));
     },
 
+    loginUser: function (payload) {
+        axios.post("/auth/login", payload)
+        .then(console.log('successful login'))
+        .catch(err => console.log(err));
+    },
+
     getFlights: function (origin, destination, departure, returnDate) {
     return axios
         .get(`https://test.api.amadeus.com/v1/shopping/flight-offers?origin=${origin}&destination=${destination}&departureDate=${departure}&returnDate=${returnDate}&currency=USD`)

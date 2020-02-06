@@ -3,6 +3,7 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Card, CardBody, Container, Input, Form, FormGroup, Label } from "reactstrap";
+import API from "../../../utils/API";
 
 class SignIn extends React.Component {
 
@@ -31,6 +32,7 @@ class SignIn extends React.Component {
         }
 
         console.log(payload);
+        API.loginUser(payload);
 
         //create route to access db and let user sign in
 
