@@ -41,8 +41,6 @@ class Register extends React.Component {
             console.log(payload);
 
             API.registerUser(payload);
-            //then response
-            //save JWToken in localstorage
 
         } else {
             //error on password not matching

@@ -62,7 +62,11 @@ export default {
 
     loginUser: function (payload) {
         axios.post("/auth/login", payload)
-        .then(data => console.log(data))
+        .then(data => {
+            console.log(data);
+            localStorage.setItem('login_token', data.data.token);
+            return "done"
+        })
         .catch(err => console.log(err));
     },
 
