@@ -37,8 +37,10 @@ router.post('/login',function(req,res,next){
 
 
 router.get("/isLoggedInTest", passport.authenticate('jwt', { session: false }), function(req, res){
-  console.log('if i got in here it means the user is logged in ')
-  res.send({user: req.user, message: 'if i got in here it means the user is logged in'});
+	
+	console.log('if i got in here it means the user is logged in ');
+
+  	res.send({user: req.user, message: 'if i got in here it means the user is logged in'});
 });
 
 
