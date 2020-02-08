@@ -18,13 +18,13 @@ let data = {
 //using qs library to stringify our header information
 data = qs.stringify(data);
 
-const setHeaders = (api,token) =>{
+const setHeaders = (api) =>{
     switch(api){
         case AMADAEUS:
-            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+            axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('access_token')}`;
             axios.defaults.headers.common['login_token'] = undefined;
         case DESTEST:
-            axios.defaults.headers.common['login_token'] = token;
+            axios.defaults.headers.common['login_token'] = localStorage.getItem('login_token');
         default:
     }
 }
@@ -38,7 +38,7 @@ export default {
             })
             .then(function(data){
                 localStorage.setItem('access_token', data.data.access_token);
-                setHeaders(AMADAEUS, data.data.access_token);
+                setHeaders(AMADAEUS);
                 return 'done'
             })
             .catch(function(err){
@@ -54,7 +54,7 @@ export default {
                 if(data.data.state !== 'approved'){
                     this.getToken();
                 }else{
-                    setHeaders(DESTEST,data.data.access_token);    
+                    setHeaders(DESTEST);    
                 }
                 cb('done')
             })
@@ -78,7 +78,7 @@ export default {
         .then(data => {
             console.log(data);
             localStorage.setItem('login_token', data.data.token);
-            setHeaders(DESTEST, data.data.token);
+            // setHeaders(DESTEST);
             // joe what page do you want to go to after this is done?
         
             axios.get('/auth/isLoggedInTest')
@@ -92,6 +92,7 @@ export default {
     },
 
     getFlights: function (origin, destination, departure, returnDate) {
+        setHeaders(AMADAEUS);
     return axios
         .get(`https://test.api.amadeus.com/v1/shopping/flight-offers?origin=${origin}&destination=${destination}&departureDate=${departure}&returnDate=${returnDate}&currency=USD`)
         .then(({ data }) => console.log(data))
@@ -99,6 +100,7 @@ export default {
     },
 
     getHotel: function (destination, departure, returnDate) {
+        setHeaders(AMADAEUS);
         return axios
             .get(`https://test.api.amadeus.com/v2/shopping/hotel-offers?cityCode=${destination}&checkInDate=${departure}&checkOutDate=${returnDate}&radius=100&radiusUnit=KM`)
             .then(({ data }) => console.log(data))
