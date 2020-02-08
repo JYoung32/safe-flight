@@ -18,17 +18,6 @@ let data = {
 //using qs library to stringify our header information
 data = qs.stringify(data);
 
-// const setHeaders = (api) =>{
-//     switch(api){
-//         case AMADAEUS:
-//             axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('access_token')}`;
-//             delete axios.defaults.headers.common['login_token'];
-//         case DESTEST:
-//             axios.defaults.headers.common['login_token'] = localStorage.getItem('login_token');
-//         default:
-//     }
-// }
-
 export default {
     getToken: function (){
         axios({
@@ -38,7 +27,6 @@ export default {
             })
             .then(function(data){
                 localStorage.setItem('access_token', data.data.access_token);
-                // setHeaders(AMADAEUS);
                 return 'done'
             })
             .catch(function(err){
@@ -56,9 +44,10 @@ export default {
             .then(function(data){
                 if(data.data.state !== 'approved'){
                     this.getToken();
-                }
+                } else {
+                    axios.defaults.headers.common['Authorization'] = `Bearer ${data.data.access_token}`;
                 cb('done')
-            })
+            }})
             .catch(function(err){
                 cb(err)
             })
@@ -79,7 +68,6 @@ export default {
         .then(data => {
             console.log(data);
             localStorage.setItem('login_token', data.data.token);
-            // setHeaders(DESTEST);
             // joe what page do you want to go to after this is done?
             axios({
                 method:'GET',
