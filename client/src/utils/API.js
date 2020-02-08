@@ -60,7 +60,7 @@ export default {
   },
 
   getHotel: function (destination, departure, returnDate) {
-    return axios
+    return axios //NOT SURE IF CHECKINDATE SHOULD BE DEPARTURE, CAN OBVIOUSLY CHANGE THOUGH 
         .get(`https://test.api.amadeus.com/v2/shopping/hotel-offers?cityCode=${destination}&checkInDate=${departure}&checkOutDate=${returnDate}&radius=100&radiusUnit=KM`)
         .then(({ data }) => console.log(data))
         .catch(err =>console.log(err));
