@@ -11,6 +11,7 @@ moment().format();
 class FlightPage extends React.Component {
 
     state = {
+        loggedIn: "",
         origin: "",
         destination: "",
         departure: "",
@@ -57,8 +58,18 @@ class FlightPage extends React.Component {
             console.log('Error sending the payload to the server')
         });;
     };
+
+    componentDidMount() {
+       const loggedIn = localStorage.getItem('login_token');
+       this.setState({ loggedIn: loggedIn }); 
+    }
     
     render() {
+
+        if( !this.state.loggedIn ) {
+            return <div className="text-center">Not Logged In</div>
+        }
+
         return (
             <div className="container">
                 <Jumbotron className="mt-3 text-center">

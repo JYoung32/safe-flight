@@ -1,6 +1,6 @@
 const express = require('express');
 const passport = require('passport');
-require('dotenv').config()
+require('dotenv').config();
 require('./models/Users');
 const cors = require('cors');
 
@@ -26,7 +26,8 @@ mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/project3",
   {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true
   });
 
   mongoose.connection.on('connected', () => {
