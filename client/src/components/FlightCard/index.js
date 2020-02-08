@@ -10,7 +10,7 @@ const FlightCard = (props) => {
           <CardHeader>Flight Name</CardHeader>
           <CardBody>
             <CardTitle>American Airlines</CardTitle>
-            <CardText>Any specif details we can pull from the API</CardText>
+            <CardText>Any specific details we can pull from the API</CardText>
             <Button>Save this flight</Button>
           </CardBody>
           <CardFooter>Footer</CardFooter>
