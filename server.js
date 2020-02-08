@@ -1,10 +1,11 @@
 const express = require('express');
 const passport = require('passport');
-require('dotenv').config()
+require('dotenv').config();
 require('./models/Users');
 const cors = require('cors');
 
 const app = express();
+require('./config/passport')(passport);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -25,10 +26,11 @@ mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/project3",
   {
     useNewUrlParser: true,
-    useUnifiedTopology: true
-    });
+    useUnifiedTopology: true,
+    useCreateIndex: true
+  });
 
-mongoose.connection.on('connected', () =>{
+  mongoose.connection.on('connected', () => {
   console.log('Mongoose is connected.');
 })
 
@@ -36,6 +38,7 @@ mongoose.connection.on('connected', () =>{
 app.use(cors()); //handles communication between react and server for data transfer
 app.use(passport.initialize());
 app.use(passport.session());
+
 
 app.use('/', require('./routes'));
 
