@@ -22,7 +22,7 @@ const setHeaders = (api) =>{
     switch(api){
         case AMADAEUS:
             axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('access_token')}`;
-            axios.defaults.headers.common['login_token'] = undefined;
+            delete axios.defaults.headers.common['login_token'];
         case DESTEST:
             axios.defaults.headers.common['login_token'] = localStorage.getItem('login_token');
         default:
