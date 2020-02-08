@@ -1,14 +1,17 @@
 import React from "react";
-import { Jumbotron, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
-import API from "../../utils/API";
-import axios from 'axios';
-import FlightCard from  '../FlightCard'
+import { Jumbotron, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { DateRangePicker } from 'react-dates';
+import API from "../../../utils/API";
+
+let moment = require('moment');
+moment().format();
+
 
 
 class FlightPage extends React.Component {
 
     state = {
+        loggedIn: "",
         origin: "",
         destination: "",
         departure: "",
@@ -40,27 +43,33 @@ class FlightPage extends React.Component {
         console.log(payload);
 
         API.getHotel(payload.destination, payload.departure, payload.returnDate)
-            .then(res => {
-                console.log(res);
-            })
-            .catch(() => {
-                console.log('Error sending the payload to the server')
-            });
+        .then(res => {
+            console.log(res);
+        })
+        .catch(() => {
+            console.log('Error sending the payload to the server')
+        });
 
         API.getFlights(payload.origin, payload.destination, payload.departure, payload.returnDate)
-            .then(res => {
-                console.log(res);
-            })
-            .catch(() => {
-                console.log('Error sending the payload to the server')
-            });
+        .then(res => {
+            console.log(res);
+        })
+        .catch(() => {
+            console.log('Error sending the payload to the server')
+        });;
     };
 
-
-
-
+    componentDidMount() {
+       const loggedIn = localStorage.getItem('login_token');
+       this.setState({ loggedIn: loggedIn }); 
+    }
     
     render() {
+
+        if( !this.state.loggedIn ) {
+            return <div className="text-center">Not Logged In</div>
+        }
+
         return (
             <div className="container">
                 <Jumbotron className="mt-3 text-center">
@@ -111,12 +120,10 @@ class FlightPage extends React.Component {
 
                 </Jumbotron>
 
-                <FlightCard />
-                <FlightCard />
             </div>
 
         );
-    }
+    };
 };
 
 export default FlightPage; 

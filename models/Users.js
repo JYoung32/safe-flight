@@ -4,10 +4,9 @@ const jwt = require('jsonwebtoken');
 
 
 const UserSchema = new mongoose.Schema({
-	firstName: String,
-	lastName: String,
+	fullName: String,
 	hash:String, 
-	email: {type: String, unique: true, lowercase: true, required: [true, "can't be blank"], index: true},
+	email: {type: String, unique: true, lowercase: true, required: [true, "can't be blank"], index: true}
 });
 UserSchema.methods.validPassword = function (password) {
     return bcrypt.compareSync(password, this.hash);

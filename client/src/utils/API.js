@@ -1,19 +1,21 @@
+//importing dependencies
 import axios from "axios";
 import qs from "qs";
 
+//setting up environment variables
 const clientID = process.env.REACT_APP_API_KEY;
-const secret = process.env.REACT_APP_API_SECRET;
+const secret = process.env.REACT_APP_API_SECRET; 
 
-//if the access token exists get the 
-
+//setting up our axios header information
 let data = {
-
     "grant_type":"client_credentials",
     "client_id": clientID,
-    "client_secret": secret
-        
+    "client_secret": secret        
 }
+
+//using qs library to stringify our header information
 data = qs.stringify(data);
+
 export default {
     getToken: function (){
         axios({
@@ -30,6 +32,7 @@ export default {
                 return err
             })
     },
+    
     validateToken: function(cb){
         const access_token = localStorage.getItem('access_token');
         if(access_token){
@@ -51,29 +54,41 @@ export default {
         }
     },
 
-    //returning as undefined
+    registerUser: function (payload) {
+        axios.post("/auth/register", payload)
+        .then(console.log('successful post'))
+        .catch(err => console.log(err));
+    },
+
+    loginUser: function (payload, history) {
+        axios.post("/auth/login", payload)
+        .then(data => {
+            console.log(data);
+            localStorage.setItem('login_token', data.data.token);
+            axios.defaults.headers.common['login_token'] = data.data.token;
+            // joe what page do you want to go to after this is done?
+        
+            axios.get('/auth/isLoggedInTest')
+              .then(data => {
+                console.log('proof that youre lgoged in', data);
+                history.push('/flight');
+              });
+
+        })
+        .catch(err => console.log(err));
+    },
+
     getFlights: function (origin, destination, departure, returnDate) {
     return axios
         .get(`https://test.api.amadeus.com/v1/shopping/flight-offers?origin=${origin}&destination=${destination}&departureDate=${departure}&returnDate=${returnDate}&currency=USD`)
         .then(({ data }) => console.log(data))
         .catch(err =>console.log(err));
-  },
+    },
 
-  getHotel: function (destination, departure, returnDate) {
-    return axios
-        .get(`https://test.api.amadeus.com/v2/shopping/hotel-offers?cityCode=${destination}&checkInDate=${departure}&checkOutDate=${returnDate}&radius=100&radiusUnit=KM`)
-        .then(({ data }) => console.log(data))
-        .catch(err =>console.log(err));
-  }
-
-
-
-
-
-//   testFlights: function () {
-//     return axios
-//         .get(`https://test.api.amadeus.com/v1/shopping/flight-offers?origin=EWR&destination=LAX&departureDate=2020-02-14&returnDate=2020-02-21&currency=USD&nonStop=true&max=10`)
-//         .then(({ data }) => console.log(data.data))
-//         .catch(err =>console.log(err));
-//   }
-};
+    getHotel: function (destination, departure, returnDate) {
+        return axios
+            .get(`https://test.api.amadeus.com/v2/shopping/hotel-offers?cityCode=${destination}&checkInDate=${departure}&checkOutDate=${returnDate}&radius=100&radiusUnit=KM`)
+            .then(({ data }) => console.log(data))
+            .catch(err =>console.log(err));
+    }
+}
