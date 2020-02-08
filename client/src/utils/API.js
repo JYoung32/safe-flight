@@ -5,8 +5,6 @@ import qs from "qs";
 //setting up environment variables
 const clientID = process.env.REACT_APP_API_KEY;
 const secret = process.env.REACT_APP_API_SECRET; 
-const AMADAEUS = "AMADAEUS";
-const DESTEST = "DestEst";
 
 //setting up our axios header information
 let data = {

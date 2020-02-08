@@ -26,7 +26,7 @@ const Navigation = (props) => {
     const handleLogout = () => {
         console.log("logout clicked");
         localStorage.clear();
-        history.push("/login");
+        history.push("/");
     };
 
     return (
@@ -38,10 +38,7 @@ const Navigation = (props) => {
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="ml-auto" navbar>
                         <NavItem>
-                            <NavLink href="/">Home</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink href="/flight">Flights</NavLink>
+                            <NavLink href="/flights">Flights</NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink onClick={handleLogout}>Log Out</NavLink>
