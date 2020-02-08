@@ -5,6 +5,8 @@ import qs from "qs";
 //setting up environment variables
 const clientID = process.env.REACT_APP_API_KEY;
 const secret = process.env.REACT_APP_API_SECRET; 
+const AMADAEUS = "AMADAEUS";
+const DESTEST = "DestEst";
 
 //setting up our axios header information
 let data = {
@@ -16,6 +18,17 @@ let data = {
 //using qs library to stringify our header information
 data = qs.stringify(data);
 
+const setHeaders = (api,token) =>{
+    switch(api){
+        case AMADAEUS:
+            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+            axios.defaults.headers.common['login_token'] = undefined;
+        case DESTEST:
+            axios.defaults.headers.common['login_token'] = token;
+        default:
+    }
+}
+
 export default {
     getToken: function (){
         axios({
@@ -24,8 +37,8 @@ export default {
             data: data
             })
             .then(function(data){
-                localStorage.setItem('access_token', data.data.access_token)
-                axios.defaults.headers.common['Authorization'] = `Bearer ${data.data.access_token}`;
+                localStorage.setItem('access_token', data.data.access_token);
+                setHeaders(AMADAEUS, data.data.access_token);
                 return 'done'
             })
             .catch(function(err){
@@ -41,7 +54,7 @@ export default {
                 if(data.data.state !== 'approved'){
                     this.getToken();
                 }else{
-                    axios.defaults.headers.common['Authorization'] = `Bearer ${data.data.access_token}`;     
+                    setHeaders(DESTEST,data.data.access_token);    
                 }
                 cb('done')
             })
@@ -65,7 +78,7 @@ export default {
         .then(data => {
             console.log(data);
             localStorage.setItem('login_token', data.data.token);
-            axios.defaults.headers.common['login_token'] = data.data.token;
+            setHeaders(DESTEST, data.data.token);
             // joe what page do you want to go to after this is done?
         
             axios.get('/auth/isLoggedInTest')
