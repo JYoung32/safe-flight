@@ -60,12 +60,20 @@ export default {
         .catch(err => console.log(err));
     },
 
-    loginUser: function (payload) {
+    loginUser: function (payload, history) {
         axios.post("/auth/login", payload)
         .then(data => {
             console.log(data);
             localStorage.setItem('login_token', data.data.token);
-            return "done"
+            axios.defaults.headers.common['login_token'] = data.data.token;
+            // joe what page do you want to go to after this is done?
+        
+            axios.get('/auth/isLoggedInTest')
+              .then(data => {
+                console.log('proof that youre lgoged in', data);
+                history.push('/flight');
+              });
+
         })
         .catch(err => console.log(err));
     },

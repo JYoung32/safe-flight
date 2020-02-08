@@ -32,7 +32,8 @@ class SignIn extends React.Component {
         }
 
         console.log(payload);
-        API.loginUser(payload)
+        //joe - history is how what you'll use to switch pages
+        API.loginUser(payload, this.props.history);
         
     };
 
