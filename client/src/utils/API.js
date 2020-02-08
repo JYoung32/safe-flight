@@ -108,7 +108,7 @@ export default {
 
     getFlights: function (origin, destination, departure, returnDate) {
         setHeaders(AMADAEUS);
-    return acios({
+    return axios({
             method:'GET',
             url: `https://test.api.amadeus.com/v1/shopping/flight-offers?origin=${origin}&destination=${destination}&departureDate=${departure}&returnDate=${returnDate}&currency=USD`,
             headers:{
@@ -123,9 +123,9 @@ export default {
 
     getHotel: function (destination, departure, returnDate) {
         setHeaders(AMADAEUS);
-        return acios({
+        return axios({
             method:'GET',
-            url: https://test.api.amadeus.com/v2/shopping/hotel-offers?cityCode=${destination}&checkInDate=${departure}&checkOutDate=${returnDate}&radius=100&radiusUnit=KM`,
+            url: `https://test.api.amadeus.com/v2/shopping/hotel-offers?cityCode=${destination}&checkInDate=${departure}&checkOutDate=${returnDate}&radius=100&radiusUnit=KM`,
             headers:{
                 commons:{
                     Authorization: 'Bearer ' + localStorage.getItem('access_token')
