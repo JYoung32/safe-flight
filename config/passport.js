@@ -17,7 +17,7 @@ module.exports = function(passport) {
 
       console.log('jwt_payload', jwt_payload);
 
-      User.findOne({id: jwt_payload.sub}, function(err, user) {
+      User.findOne({_id: jwt_payload._id}, function(err, user) {
           user.hash = undefined;
           if (err) {
               return done(err, false);
