@@ -113,7 +113,7 @@ class Register extends React.Component {
                                         Register
                                     </Button>
                                 </Form>
-                                <p className="mx-auto mt-3 text-center">Already have an account? <a href="/users/login">Login</a></p>
+                                <p className="mx-auto mt-3 text-center">Already have an account? <a href="/login">Login</a></p>
                             </CardBody>
                         </Card>
                     </div>

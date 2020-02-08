@@ -25,8 +25,9 @@ function App() {
     <Router>
       <Navbar />
         <Route path="/" exact component={CreateUser} />
-        <Route path="/users/login" exact component={SignIn} />
+        <Route path="/login" exact component={SignIn} />
         <Route path="/flight" exact component={FlightPage} />
+        <Route path="/logout" exact component={SignIn} />
     </Router>
   );
 }

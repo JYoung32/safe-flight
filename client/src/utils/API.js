@@ -19,6 +19,7 @@ let data = {
 data = qs.stringify(data);
 
 export default {
+    //Amadeus
     getToken: function (){
         axios({
             method: 'post',
@@ -34,6 +35,7 @@ export default {
             })
     },
     
+    //Amadeus
     validateToken: function(cb){
         const access_token = localStorage.getItem('access_token');
         if(access_token){
