@@ -83,23 +83,7 @@ export default {
         .get(`https://test.api.amadeus.com/v1/shopping/flight-offers?origin=${origin}&destination=${destination}&departureDate=${departure}&returnDate=${returnDate}&currency=USD`)
         .then(({ data }) => console.log(data))
         .catch(err =>console.log(err));
-<<<<<<< HEAD
-  },
-
-  getHotel: function (destination, departure, returnDate) {
-    return axios //NOT SURE IF CHECKINDATE SHOULD BE DEPARTURE, CAN OBVIOUSLY CHANGE THOUGH 
-        .get(`https://test.api.amadeus.com/v2/shopping/hotel-offers?cityCode=${destination}&checkInDate=${departure}&checkOutDate=${returnDate}&radius=100&radiusUnit=KM`)
-        .then(({ data }) => console.log(data))
-        .catch(err =>console.log(err));
-  }
-
-
-
-
-=======
     },
->>>>>>> f8150f4d7f025b16370f14d69beee43abd35f83f
-
     getHotel: function (destination, departure, returnDate) {
         return axios
             .get(`https://test.api.amadeus.com/v2/shopping/hotel-offers?cityCode=${destination}&checkInDate=${departure}&checkOutDate=${returnDate}&radius=100&radiusUnit=KM`)
