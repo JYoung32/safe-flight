@@ -5,8 +5,6 @@ import qs from "qs";
 //setting up environment variables
 const clientID = process.env.REACT_APP_API_KEY;
 const secret = process.env.REACT_APP_API_SECRET; 
-const AMADAEUS = "AMADAEUS";
-const DESTEST = "DestEst";
 
 //setting up our axios header information
 let data = {
@@ -19,6 +17,7 @@ let data = {
 data = qs.stringify(data);
 
 export default {
+    //Amadeus
     getToken: function (){
         axios({
             method: 'post',
@@ -34,6 +33,7 @@ export default {
             })
     },
     
+    //Amadeus
     validateToken: function(cb){
         const access_token = localStorage.getItem('access_token');
         if(access_token){

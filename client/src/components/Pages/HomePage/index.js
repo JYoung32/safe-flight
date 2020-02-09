@@ -1,17 +1,17 @@
-//Login component
-
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Card, CardBody, Container, Input, Form, FormGroup, Label } from 'reactstrap';
 import API from '../../../utils/API'
 
-class Register extends React.Component {
+class HomePage extends React.Component {
 
     state = {
         fullName: "",
         email: "",
         password: "",
-        confirmPassword: ""
+        confirmPassword: "",
+        loginEmail: "",
+        loginPassword: ""
     };
 
     handleChange = (event) => {
@@ -24,7 +24,7 @@ class Register extends React.Component {
         });
     };
     
-    handleSubmit = (event) => {
+    handleRegistration = (event) => {
         event.preventDefault();
         console.log("Submit button clicked");
 
@@ -47,7 +47,22 @@ class Register extends React.Component {
             console.log("Not matched");
         }
         
-    }
+    };
+
+    handleLogin = (event) => {
+        event.preventDefault();
+        console.log("Submit button clicked");
+
+        const payload = {
+            email: this.state.loginEmail,
+            password: this.state.loginPassword
+        }
+
+        console.log(payload);
+        //joe - history is how what you'll use to switch pages
+        API.loginUser(payload, this.props.history);
+        
+    };
 
 
     render() {
@@ -109,11 +124,51 @@ class Register extends React.Component {
                                     </FormGroup>
                                     <Button type="submit" 
                                     className="btn btn-primary btn-block mt-5"
-                                    onClick={this.handleSubmit}>
+                                    onClick={this.handleRegistration}>
                                         Register
                                     </Button>
                                 </Form>
-                                <p className="mx-auto mt-3 text-center">Already have an account? <a href="/users/login">Login</a></p>
+                                {/* <p className="mx-auto mt-3 text-center">Already have an account? <a href="/login">Login</a></p> */}
+                            </CardBody>
+                        </Card>
+                    </div>
+                    <div className="col-md-6 m-auto">
+                    <Card>
+                            <CardBody>
+                            <h1 className="text-center mb-3">
+                                <FontAwesomeIcon icon="user" /> Sign In
+                            </h1>
+                            <Form>
+                                <FormGroup>
+                                    <Label for="loginEmail">Email</Label>
+                                    <Input type="email"
+                                    id="loginEmail"
+                                    name="loginEmail"
+                                    className="form-control text-center"
+                                    placeholder="Enter Email"
+                                    value={this.state.loginEmail}
+                                    onChange={this.handleChange} 
+                                    ></Input>
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label for="loginPassword">Password</Label>
+                                    <Input type="password"
+                                    id="loginPassword"
+                                    name="loginPassword"
+                                    className="form-control text-center"
+                                    placeholder="Enter Password"
+                                    value={this.state.loginPassword}
+                                    onChange={this.handleChange} 
+                                    ></Input>
+                                </FormGroup>
+                                <Button type="submit"
+                                className="btn btn-primary btn-block mt-5"
+                                onClick={this.handleLogin}>
+                                        Sign In
+                                </Button>
+                                </Form>
+                                {/* <p className="mx-auto mt-3 text-center">Need an account?<a href="/"> Register</a></p> */}
+                                {/* <p className="mx-auto"> Need help?<a href="#"> Click here</a></p> */}
                             </CardBody>
                         </Card>
                     </div>
@@ -123,6 +178,4 @@ class Register extends React.Component {
     }
 };
 
-export default Register;
-
-
+export default HomePage;

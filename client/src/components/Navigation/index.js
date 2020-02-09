@@ -11,14 +11,23 @@ import {
     // DropdownToggle,
     // DropdownMenu,
     // DropdownItem,
-    // NavbarText
+    NavbarText
 } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useHistory } from 'react-router-dom';
 
 const Navigation = (props) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggle = () => setIsOpen(!isOpen);
+
+    const history = useHistory();
+
+    const handleLogout = () => {
+        console.log("logout clicked");
+        localStorage.clear();
+        history.push("/");
+    };
 
     return (
         <div>
@@ -29,16 +38,10 @@ const Navigation = (props) => {
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="ml-auto" navbar>
                         <NavItem>
-                            <NavLink href="/">Home</NavLink>
+                            <NavLink href="/flights">Flights</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink href="/flight">Flights</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink href="#">Profile</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink disabled href="#"></NavLink>
+                            <NavLink onClick={handleLogout}>Log Out</NavLink>
                         </NavItem>
                     </Nav>
                 </Collapse>
