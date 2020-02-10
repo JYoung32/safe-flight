@@ -1,17 +1,17 @@
 import React from "react";
-import { Jumbotron, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Jumbotron, Button, Form, FormGroup, Label, Input, Card, CardTitle, CardText, CardHeader, CardFooter, CardBody } from 'reactstrap';
 import { DateRangePicker } from 'react-dates';
 import API from "../../../utils/API";
+import { Redirect } from 'react-router-dom';
 
 let moment = require('moment');
 moment().format();
-
-
 
 class FlightPage extends React.Component {
 
     state = {
         loggedIn: "",
+        redirect: false,
         origin: "",
         destination: "",
         departure: "",
@@ -43,31 +43,58 @@ class FlightPage extends React.Component {
         console.log(payload);
 
         API.getHotel(payload.destination, payload.departure, payload.returnDate)
-        .then(res => {
-            console.log(res);
-        })
-        .catch(() => {
-            console.log('Error sending the payload to the server')
-        });
+            .then(res => {
+                console.log(res);
+            })
+            .catch(() => {
+                console.log('Error sending the payload to the server')
+            });
 
         API.getFlights(payload.origin, payload.destination, payload.departure, payload.returnDate)
-        .then(res => {
-            console.log(res);
+            .then(res => {
+                console.log(res);
+            })
+            .catch(() => {
+                console.log('Error sending the payload to the server')
+            });;
+    };
+
+    setRedirect = () => {
+        console.log('redirect clicked');
+        this.setState({
+            redirect: true
         })
-        .catch(() => {
-            console.log('Error sending the payload to the server')
-        });;
+    };
+
+    handleRedirect = () => {
+        console.log('redirect clicked');
+        if (this.state.redirect) {
+            return <Redirect to='/' />
+        }
     };
 
     componentDidMount() {
-       const loggedIn = localStorage.getItem('login_token');
-       this.setState({ loggedIn: loggedIn }); 
+        const loggedIn = localStorage.getItem('login_token');
+        this.setState({ loggedIn: loggedIn });
     }
-    
+
     render() {
 
-        if( !this.state.loggedIn ) {
-            return <div className="text-center">Not Logged In</div>
+        if (!this.state.loggedIn) {
+            return ( 
+                <div className="text-center container mt-3">
+                    {this.handleRedirect()}
+                    <Card>
+                        <CardHeader tag="h3">You Are Not Logged In!</CardHeader>
+                        <CardBody>
+                            <CardText>If you would like to view our page, please click the button below to sign in or register.</CardText>
+                            <CardText>Thank You!</CardText>
+                            <Button onClick={this.setRedirect}>Register / Sign In</Button>
+                        </CardBody>
+                        <CardFooter className="text-muted">Destination Estimation</CardFooter>
+                    </Card>
+                </div> 
+            )
         }
 
         return (
