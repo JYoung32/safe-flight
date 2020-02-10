@@ -101,8 +101,6 @@ export default {
                 }
             }
         })
-        .then(({ data }) => console.log(data))
-        .catch(err =>console.log(err));
     },
 
     getHotel: function (destination, departure, returnDate) {
@@ -115,7 +113,5 @@ export default {
                 }
             }
         })
-            .then(({ data }) => console.log(data))
-            .catch(err =>console.log(err));
     }
 }

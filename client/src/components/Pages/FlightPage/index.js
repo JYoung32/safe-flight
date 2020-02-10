@@ -42,21 +42,25 @@ class FlightPage extends React.Component {
         };
         console.log(payload);
 
-        API.getHotel(payload.destination, payload.departure, payload.returnDate)
-            .then(res => {
-                console.log(res);
-            })
-            .catch(() => {
-                console.log('Error sending the payload to the server')
-            });
+        // API.getHotel(payload.destination, payload.departure, payload.returnDate)
+        // .then(res => {
+        //     console.log(res);
+        // })
+        // .catch(() => {
+        //     console.log('Error sending the payload to the server')
+        // });
 
         API.getFlights(payload.origin, payload.destination, payload.departure, payload.returnDate)
-            .then(res => {
-                console.log(res);
-            })
-            .catch(() => {
-                console.log('Error sending the payload to the server')
-            });;
+        .then(data => {
+            console.log(data);
+            this.setState({
+                flights: data.data
+            });
+            console.log(this.state.flights);
+        })
+        .catch(() => {
+            console.log('Error sending the payload to the server')
+        });;
     };
 
     setRedirect = () => {
@@ -127,7 +131,7 @@ class FlightPage extends React.Component {
                                 />
                             </FormGroup>
                         </div>
-
+                        
                         <DateRangePicker
                             startDate={this.state.startDate} // momentPropTypes.momentObj or null,
                             startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
