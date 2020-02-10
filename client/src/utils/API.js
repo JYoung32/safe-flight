@@ -57,9 +57,13 @@ export default {
         }
     },
 
-    registerUser: function (payload) {
+    registerUser: function (payload, history) {
         axios.post("/auth/register", payload)
-        .then(console.log('successful post'))
+        .then(data => {
+            console.log('successful post', data);
+            localStorage.setItem('login_token', data.data.token);
+            history.push('/flights');
+        })
         .catch(err => console.log(err));
     },
 
@@ -80,7 +84,7 @@ export default {
             })
               .then(data => {
                 console.log('proof that youre lgoged in', data);
-                history.push('/flight');
+                history.push('/flights');
               });
 
         })
@@ -97,8 +101,6 @@ export default {
                 }
             }
         })
-        .then(({ data }) => console.log(data))
-        .catch(err =>console.log(err));
     },
 
     getHotel: function (destination, departure, returnDate) {
@@ -111,7 +113,5 @@ export default {
                 }
             }
         })
-            .then(({ data }) => console.log(data))
-            .catch(err =>console.log(err));
     }
 }
