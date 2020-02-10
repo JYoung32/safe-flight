@@ -153,6 +153,8 @@ class FlightPage extends React.Component {
 
             </div>
 
+            
+
         );
     };
 };
