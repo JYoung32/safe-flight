@@ -36,7 +36,7 @@ class HomePage extends React.Component {
 
         if (this.state.fullName === "" || this.state.email === "" || this.state.password === "" || this.state.confirmPassword === "") {
 
-            console.log("Please fill in all Registration Fields");
+            alert("Please fill in all Registration Fields");
 
         } else if (payload.password === confirmPassword){
             //Post route to save new registered user
@@ -47,7 +47,7 @@ class HomePage extends React.Component {
 
         } else {
             //error on password not matching
-            console.log("Not matched");
+            alert("Passwords Not matched");
         }    
     };
 
@@ -63,7 +63,7 @@ class HomePage extends React.Component {
         console.log(payload);
         //joe - history is how what you'll use to switch pages
         if (this.state.loginEmail === "" || this.state.loginPassword === "") {
-            console.log("Please fill in all Sign In fields")
+            alert("Please fill in all Sign In fields");
         } else {
             API.loginUser(payload, this.props.history);
         }    

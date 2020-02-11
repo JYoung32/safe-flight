@@ -94,7 +94,7 @@ export default {
     getFlights: function (origin, destination, departure, returnDate) {
     return axios({
             method:'GET',
-            url: `https://test.api.amadeus.com/v1/shopping/flight-offers?origin=${origin}&destination=${destination}&departureDate=${departure}&returnDate=${returnDate}&currency=USD`,
+            url: `https://test.api.amadeus.com/v1/shopping/flight-offers?origin=${origin}&destination=${destination}&departureDate=${departure}&returnDate=${returnDate}&currency=USD&nonStop=true`,
             headers:{
                 common:{
                     Authorization: 'Bearer ' + localStorage.getItem('access_token')
