@@ -1,16 +1,22 @@
 import React from "react";
 import "./style.scss";
+<<<<<<< HEAD
 import { Jumbotron, Card, CardHeader, CardBody, CardText, CardFooter, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { DateRangePicker } from 'react-dates';
 import API from "../../../utils/API";
 import FlightCard from "../../FlightCard"
+=======
+import { DateRangePicker } from 'react-dates';
+import API from "../../../utils/API";
+import FlightCard from "../../FlightCard"
+import { Jumbotron, Button, Form, FormGroup, Label, Input, Card, CardTitle, CardText, CardHeader, CardFooter, CardBody } from 'reactstrap';
+>>>>>>> 17bd621d3bc6e4842ffe63d78ba2b0386e231eff
 import { Redirect } from 'react-router-dom';
 
 let moment = require('moment');
 moment().format();
 
 class FlightPage extends React.Component {
-
     state = {
         loggedIn: "",
         redirect: false,
@@ -29,11 +35,15 @@ class FlightPage extends React.Component {
         this.setState({
             [name]: value
         });
-
     };
 
     handleSubmit = (event) => {
         event.preventDefault();
+        console.log(this.state.startDate)
+        if (this.state.origin === "" || this.state.destination === "" || this.state.startDate === undefined || this.state.returnDate === undefined || this.state.startDate === null || this.state.returnDate === null){
+            console.log("this dont work")
+            return false
+        }
         console.log("hello handle submit click");
         //payload of the flight info entered
         const payload = {
@@ -44,6 +54,7 @@ class FlightPage extends React.Component {
         };
         console.log(payload);
 
+<<<<<<< HEAD
         // API.getHotel(payload.destination, payload.departure, payload.returnDate)
         // .then(res => {
         //     console.log(res);
@@ -52,6 +63,8 @@ class FlightPage extends React.Component {
         //     console.log('Error sending the payload to the server')
         // });
 
+=======
+>>>>>>> 17bd621d3bc6e4842ffe63d78ba2b0386e231eff
         API.getFlights(payload.origin, payload.destination, payload.departure, payload.returnDate)
         .then(data => {
             console.log(data);
@@ -97,7 +110,7 @@ class FlightPage extends React.Component {
                             <CardText>Thank You!</CardText>
                             <Button onClick={this.setRedirect}>Register / Sign In</Button>
                         </CardBody>
-                        <CardFooter className="text-muted">Destination Estimation</CardFooter>
+                        <CardFooter className="text-muted">Safe Flight</CardFooter>
                     </Card>
                 </div> 
             )

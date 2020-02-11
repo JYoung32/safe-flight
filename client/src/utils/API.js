@@ -102,15 +102,16 @@ export default {
             }
         })
     },
-    getHotel: function (destination, departure, returnDate) {
-        return axios({
-            method:'GET',
-            url: `https://test.api.amadeus.com/v2/shopping/hotel-offers?cityCode=${destination}&checkInDate=${departure}&checkOutDate=${returnDate}&radius=100&radiusUnit=KM`,
-            headers:{
-                common:{
-                    Authorization: 'Bearer ' + localStorage.getItem('access_token')
-                }
-            }
-        })
-    }
+
+    // getHotel: function (destination, departure, returnDate) {
+    //     return axios({
+    //         method:'GET',
+    //         url: `https://test.api.amadeus.com/v2/shopping/hotel-offers?cityCode=${destination}&checkInDate=${departure}&checkOutDate=${returnDate}&radius=100&radiusUnit=KM`,
+    //         headers:{
+    //             common:{
+    //                 Authorization: 'Bearer ' + localStorage.getItem('access_token')
+    //             }
+    //         }
+    //     })
+    // }
 }

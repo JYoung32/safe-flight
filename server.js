@@ -11,13 +11,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 if (process.env.NODE_ENV === "production") {
-    app.use(express.static("client/build"));
-    const path = require('path');
-    app.get('*', (req, res) => {
-      res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-    });
-  }
-
+  app.use(express.static("client/build"));
+  const path = require('path');
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
 
 //connect to our mongoDB and log it to the console
 const mongoose = require('mongoose');
@@ -34,11 +33,9 @@ mongoose.connect(
   console.log('Mongoose is connected.');
 })
 
-
 app.use(cors()); //handles communication between react and server for data transfer
 app.use(passport.initialize());
 app.use(passport.session());
-
 
 app.use('/', require('./routes'));
 

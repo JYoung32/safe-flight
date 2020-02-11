@@ -7,12 +7,7 @@ import {
     NavbarBrand,
     Nav,
     NavItem,
-    NavLink,
-    // UncontrolledDropdown,
-    // DropdownToggle,
-    // DropdownMenu,
-    // DropdownItem,
-    NavbarText
+    NavLink
 } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useHistory } from 'react-router-dom';
@@ -34,7 +29,7 @@ const Navigation = (props) => {
         <div>
             <Navbar className="nav" expand="md">
             <FontAwesomeIcon icon="map-marked-alt" />
-                <NavbarBrand href="/">Destination Estimation</NavbarBrand>
+                <NavbarBrand href="/">Safe Flight</NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="ml-auto" navbar>
