@@ -20,23 +20,11 @@ $violet4: #3e2542;
 $violet5: #392138;
 
 //main colors
-
 $ivory: #f4e8c1;
 $azulverde: #a0c1b8;
 $bolivia: #709fb0;
 $jacaranda: #726a95;
 $malbec: #351f39;
-
-
-
-
-
-
-
-.container{
-    margin: 0;
-
-}
 
 .jumbo{
     background-color: rgba(255, 255, 255, 0.449);
@@ -49,12 +37,12 @@ $malbec: #351f39;
     box-shadow: 2px 5px 10px $violet2;
 }
 
-
 .btn {
     background-color: $violet3;
     border-color: $orange1;
     color: $ivory
 }
+
 .btn:hover{
  background-color: $azulverde;
  color: $malbec;
@@ -64,6 +52,7 @@ $malbec: #351f39;
  transition-duration: .35s;  
 
 }
+
 body{
     background-color: $white;
     
@@ -81,6 +70,7 @@ body{
     text-shadow: 1px 1px 1px $violet3;
 
 }
+
 .form-control:focus{
     border-color: #cccccc;
     -webkit-box-shadow: none;
