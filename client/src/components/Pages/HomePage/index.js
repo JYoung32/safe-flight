@@ -69,6 +69,7 @@ class HomePage extends React.Component {
         //joe - history is how what you'll use to switch pages
         if (this.state.loginEmail === "" || this.state.loginPassword === "") {
             alert("Please fill in all Sign In fields");
+
         }else{
             API.loginUser(payload, this.props.history);
             
