@@ -102,7 +102,6 @@ export default {
             }
         })
     },
-
     getHotel: function (destination, departure, returnDate) {
         return axios({
             method:'GET',

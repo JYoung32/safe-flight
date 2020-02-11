@@ -1,0 +1,89 @@
+//Color Palette Variables
+$white : #F5F8f7;
+$cream1: #f7efd2;
+$cream2: #f4ecc8;
+$cream3: #f0e6c2;
+$cream4: #e5c09a;
+$green1: #98b9b7;
+$green2: #82b0b8;
+$green3: #7aabb6;;
+$green4: #6f9fb0;
+$orange1: #e5c09a;
+$orange2: #cb9179;
+$orange3: #be8773;
+$orange4: #72444c;
+$orange5: #592d35;
+$violet1: #746994;
+$violet2: #614880;
+$violet3: #6c465f;
+$violet4: #3e2542;
+$violet5: #392138;
+
+//main colors
+
+$ivory: #f4e8c1;
+$azulverde: #a0c1b8;
+$bolivia: #709fb0;
+$jacaranda: #726a95;
+$malbec: #351f39;
+
+
+
+
+
+
+
+.container{
+    margin: 0;
+
+}
+
+.jumbo{
+    background-color: rgba(255, 255, 255, 0.449);
+    color: $malbec;
+    border-radius: 0;
+    padding: 15px 0;
+    background-image: url("../../../imgs/flight-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 2px 5px 10px $violet2;
+}
+
+
+.btn {
+    background-color: $violet3;
+    border-color: $orange1;
+    color: $ivory
+}
+.btn:hover{
+ background-color: $azulverde;
+ color: $malbec;
+ border-color: $azulverde;
+ cursor: pointer;
+ transition-property: background-color ease;
+ transition-duration: .35s;  
+
+}
+body{
+    background-color: $white;
+    
+}
+
+.formgroup{
+    padding: 15px;
+    background-color: #726a9577;
+    color: $malbec;
+    -webkit-box-shadow: 0 8px 5px -6px $violet3;
+    -moz-box-shadow: 0 10px 5px -6px $violet3;
+         box-shadow: 0 10px 5px -6px $violet3;
+    font-weight: 450;
+    font-size:24px;
+    text-shadow: 1px 1px 1px $violet3;
+
+}
+.form-control:focus{
+    border-color: #cccccc;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+

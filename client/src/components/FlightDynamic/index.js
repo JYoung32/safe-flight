@@ -4,7 +4,7 @@ import React from 'react';
 
 class FlightDynamic extends React.Component {
     constructor() {
-        super();
+        // super();
         this.state = {
             'apiFlights': []
         }

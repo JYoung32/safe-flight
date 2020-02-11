@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import "./style.scss";
 import { Card, Button, CardHeader, CardFooter, CardBody,
     CardTitle, CardText } from 'reactstrap';
 
@@ -7,9 +8,9 @@ import { Card, Button, CardHeader, CardFooter, CardBody,
 const FlightCard = (props) => {
     return (
       <div>
-        <Card>
-          <CardHeader>Flight Name</CardHeader>
-          <CardBody>
+        <Card className="card">
+          <CardHeader className= "cardhead">Flight Name</CardHeader>
+          <CardBody className="cardbody">
             <CardTitle>American Airlines</CardTitle>
             <CardText>Any specific details we can pull from the API</CardText>
             <Button>Save this flight</Button>
