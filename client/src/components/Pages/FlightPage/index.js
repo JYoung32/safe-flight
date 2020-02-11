@@ -1,16 +1,9 @@
 import React from "react";
 import "./style.scss";
-<<<<<<< HEAD
-import { Jumbotron, Card, CardHeader, CardBody, CardText, CardFooter, Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import { DateRangePicker } from 'react-dates';
-import API from "../../../utils/API";
-import FlightCard from "../../FlightCard"
-=======
 import { DateRangePicker } from 'react-dates';
 import API from "../../../utils/API";
 import FlightCard from "../../FlightCard"
 import { Jumbotron, Button, Form, FormGroup, Label, Input, Card, CardTitle, CardText, CardHeader, CardFooter, CardBody } from 'reactstrap';
->>>>>>> 17bd621d3bc6e4842ffe63d78ba2b0386e231eff
 import { Redirect } from 'react-router-dom';
 
 let moment = require('moment');
@@ -54,17 +47,6 @@ class FlightPage extends React.Component {
         };
         console.log(payload);
 
-<<<<<<< HEAD
-        // API.getHotel(payload.destination, payload.departure, payload.returnDate)
-        // .then(res => {
-        //     console.log(res);
-        // })
-        // .catch(() => {
-        //     console.log('Error sending the payload to the server')
-        // });
-
-=======
->>>>>>> 17bd621d3bc6e4842ffe63d78ba2b0386e231eff
         API.getFlights(payload.origin, payload.destination, payload.departure, payload.returnDate)
         .then(data => {
             console.log(data);
