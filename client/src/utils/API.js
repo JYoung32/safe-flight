@@ -17,6 +17,7 @@ let data = {
 data = qs.stringify(data);
 
 export default {
+    //Amadeus
     getToken: function (){
         axios({
             method: 'post',
@@ -24,8 +25,7 @@ export default {
             data: data
             })
             .then(function(data){
-                localStorage.setItem('access_token', data.data.access_token)
-                axios.defaults.headers.common['Authorization'] = `Bearer ${data.data.access_token}`;
+                localStorage.setItem('access_token', data.data.access_token);
                 return 'done'
             })
             .catch(function(err){
@@ -33,18 +33,21 @@ export default {
             })
     },
     
+    //Amadeus
     validateToken: function(cb){
         const access_token = localStorage.getItem('access_token');
         if(access_token){
-            axios.get('https://test.api.amadeus.com/v1/security/oauth2/token/'  +access_token)
-            .then((data) => {
+            axios({
+                method: 'GET',
+                url: 'https://test.api.amadeus.com/v1/security/oauth2/token/' +access_token
+            })
+            .then(function(data){
                 if(data.data.state !== 'approved'){
                     this.getToken();
-                }else{
-                    axios.defaults.headers.common['Authorization'] = `Bearer ${data.data.access_token}`;     
-                }
+                } else {
+                    axios.defaults.headers.common['Authorization'] = `Bearer ${data.data.access_token}`;
                 cb('done')
-            })
+            }})
             .catch(function(err){
                 cb(err)
             })
@@ -54,9 +57,13 @@ export default {
         }
     },
 
-    registerUser: function (payload) {
+    registerUser: function (payload, history) {
         axios.post("/auth/register", payload)
-        .then(console.log('successful post'))
+        .then(data => {
+            console.log('successful post', data);
+            localStorage.setItem('login_token', data.data.token);
+            history.push('/flights');
+        })
         .catch(err => console.log(err));
     },
 
@@ -65,13 +72,19 @@ export default {
         .then(data => {
             console.log(data);
             localStorage.setItem('login_token', data.data.token);
-            axios.defaults.headers.common['login_token'] = data.data.token;
             // joe what page do you want to go to after this is done?
-        
-            axios.get('/auth/isLoggedInTest')
+            axios({
+                method:'GET',
+                url: '/auth/isLoggedInTest',
+                headers:{
+                    common:{
+                        "login_token" : localStorage.getItem('login_token')
+                    }
+                }
+            })
               .then(data => {
                 console.log('proof that youre lgoged in', data);
-                history.push('/flight');
+                history.push('/flights');
               });
 
         })
@@ -79,16 +92,26 @@ export default {
     },
 
     getFlights: function (origin, destination, departure, returnDate) {
-    return axios
-        .get(`https://test.api.amadeus.com/v1/shopping/flight-offers?origin=${origin}&destination=${destination}&departureDate=${departure}&returnDate=${returnDate}&currency=USD`)
-        .then(({ data }) => console.log(data))
-        .catch(err =>console.log(err));
+    return axios({
+            method:'GET',
+            url: `https://test.api.amadeus.com/v1/shopping/flight-offers?origin=${origin}&destination=${destination}&departureDate=${departure}&returnDate=${returnDate}&currency=USD`,
+            headers:{
+                common:{
+                    Authorization: 'Bearer ' + localStorage.getItem('access_token')
+                }
+            }
+        })
     },
 
     getHotel: function (destination, departure, returnDate) {
-        return axios
-            .get(`https://test.api.amadeus.com/v2/shopping/hotel-offers?cityCode=${destination}&checkInDate=${departure}&checkOutDate=${returnDate}&radius=100&radiusUnit=KM`)
-            .then(({ data }) => console.log(data))
-            .catch(err =>console.log(err));
+        return axios({
+            method:'GET',
+            url: `https://test.api.amadeus.com/v2/shopping/hotel-offers?cityCode=${destination}&checkInDate=${departure}&checkOutDate=${returnDate}&radius=100&radiusUnit=KM`,
+            headers:{
+                common:{
+                    Authorization: 'Bearer ' + localStorage.getItem('access_token')
+                }
+            }
+        })
     }
 }
