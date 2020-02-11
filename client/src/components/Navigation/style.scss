@@ -1,0 +1,58 @@
+//Color Palette Variables
+$white : #F5F8f7;
+$cream1: #f7efd2;
+$cream2: #f4ecc8;
+$cream3: #f0e6c2;
+$cream4: #e5c09a;
+$green1: #98b9b7;
+$green2: #82b0b8;
+$green3: #7aabb6;;
+$green4: #6f9fb0;
+$orange1: #e5c09a;
+$orange2: #cb9179;
+$orange3: #be8773;
+$orange4: #72444c;
+$orange5: #592d35;
+$violet1: #746994;
+$violet2: #614880;
+$violet3: #6c465f;
+$violet4: #3e2542;
+$violet5: #392138;
+
+//main colors
+
+$ivory: #f4e8c1;
+$azulverde: #a0c1b8;
+$bolivia: #709fb0;
+$jacaranda: #726a95;
+$malbec: #351f39;
+
+
+
+.nav{
+    background-color: $malbec;
+    border-bottom: 3px solid $jacaranda;
+    
+    color: $jacaranda;
+     /* unvisited link */
+        a:link {
+            color: $ivory;
+            cursor: pointer;
+            transition-property: color ease;
+    transition-duration: .25s;  
+        } 
+        a:visited {
+            color: $ivory;   
+            transition-property: color ease;
+            transition-duration: .25s;           
+        }
+        
+        /* mouse over link */
+        a:hover {
+            color: $orange3;
+            cursor: pointer;  
+            transition-property: color ease;
+            transition-duration: .45s;            
+        }
+    
+}

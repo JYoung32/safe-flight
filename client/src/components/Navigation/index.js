@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "./style.scss"
 import {
     Collapse,
     Navbar,
@@ -31,7 +32,7 @@ const Navigation = (props) => {
 
     return (
         <div>
-            <Navbar color="light" light expand="md">
+            <Navbar className="nav" expand="md">
             <FontAwesomeIcon icon="map-marked-alt" />
                 <NavbarBrand href="/">Destination Estimation</NavbarBrand>
                 <NavbarToggler onClick={toggle} />
