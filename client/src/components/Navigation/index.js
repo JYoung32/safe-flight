@@ -34,7 +34,7 @@ const Navigation = (props) => {
         <div>
             <Navbar className="nav" expand="md">
             <FontAwesomeIcon icon="map-marked-alt" />
-                <NavbarBrand href="/">Destination Estimation</NavbarBrand>
+                <NavbarBrand href="/">Safe Flight</NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="ml-auto" navbar>
