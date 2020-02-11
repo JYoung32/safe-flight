@@ -2,6 +2,7 @@ import React from "react";
 import { Jumbotron, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { DateRangePicker } from 'react-dates';
 import API from "../../../utils/API";
+import "./style.css";
 
 let moment = require('moment');
 moment().format();
