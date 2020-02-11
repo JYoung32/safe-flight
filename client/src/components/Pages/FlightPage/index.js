@@ -34,7 +34,7 @@ class FlightPage extends React.Component {
         event.preventDefault();
         console.log(this.state.startDate)
         if (this.state.origin === "" || this.state.destination === "" || this.state.startDate === undefined || this.state.returnDate === undefined || this.state.startDate === null || this.state.returnDate === null){
-            console.log("this dont work")
+            alert("this dont work")
             return false
         }
         console.log("hello handle submit click");
