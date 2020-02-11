@@ -4,7 +4,6 @@ import { Button, Card, CardBody, Container, Input, Form, FormGroup, Label } from
 import API from '../../../utils/API'
 
 class HomePage extends React.Component {
-
     state = {
         fullName: "",
         email: "",
@@ -49,8 +48,7 @@ class HomePage extends React.Component {
         } else {
             //error on password not matching
             console.log("Not matched");
-        }
-        
+        }    
     };
 
     handleLogin = (event) => {
@@ -68,9 +66,7 @@ class HomePage extends React.Component {
             console.log("Please fill in all Sign In fields")
         } else {
             API.loginUser(payload, this.props.history);
-        }
-        
-        
+        }    
     };
 
 
@@ -83,8 +79,7 @@ class HomePage extends React.Component {
                             <CardBody>
                                 <h1 className="text-center mb-3">
                                     <FontAwesomeIcon icon="id-card" /> Register
-                            </h1>
-
+                                </h1>
 
                                 <Form>
                                     <FormGroup>
@@ -132,17 +127,16 @@ class HomePage extends React.Component {
                                         ></Input>
                                     </FormGroup>
                                     <Button type="submit" 
-                                    className="btn btn-primary btn-block mt-5"
-                                    onClick={this.handleRegistration}>
-                                        Register
+                                        className="btn btn-primary btn-block mt-5"
+                                        onClick={this.handleRegistration}>
+                                            Register
                                     </Button>
                                 </Form>
-                                {/* <p className="mx-auto mt-3 text-center">Already have an account? <a href="/login">Login</a></p> */}
                             </CardBody>
                         </Card>
                     </div>
                     <div className="col-md-6 m-auto">
-                    <Card>
+                        <Card>
                             <CardBody>
                             <h1 className="text-center mb-3">
                                 <FontAwesomeIcon icon="user" /> Sign In
@@ -171,13 +165,11 @@ class HomePage extends React.Component {
                                     ></Input>
                                 </FormGroup>
                                 <Button type="submit"
-                                className="btn btn-primary btn-block mt-5"
-                                onClick={this.handleLogin}>
+                                    className="btn btn-primary btn-block mt-5"
+                                    onClick={this.handleLogin}>
                                         Sign In
                                 </Button>
                                 </Form>
-                                {/* <p className="mx-auto mt-3 text-center">Need an account?<a href="/"> Register</a></p> */}
-                                {/* <p className="mx-auto"> Need help?<a href="#"> Click here</a></p> */}
                             </CardBody>
                         </Card>
                     </div>

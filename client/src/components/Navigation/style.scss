@@ -20,33 +20,29 @@ $violet4: #3e2542;
 $violet5: #392138;
 
 //main colors
-
 $ivory: #f4e8c1;
 $azulverde: #a0c1b8;
 $bolivia: #709fb0;
 $jacaranda: #726a95;
 $malbec: #351f39;
 
-
-
 .nav{
+
     background-color: $malbec;
-    border-bottom: 3px solid $jacaranda;
-    
+    border-bottom: 3px solid $jacaranda; 
     color: $jacaranda;
      /* unvisited link */
         a:link {
             color: $ivory;
             cursor: pointer;
             transition-property: color ease;
-    transition-duration: .25s;  
+            transition-duration: .25s;  
         } 
         a:visited {
             color: $ivory;   
             transition-property: color ease;
             transition-duration: .25s;           
-        }
-        
+        } 
         /* mouse over link */
         a:hover {
             color: $orange3;
@@ -54,5 +50,5 @@ $malbec: #351f39;
             transition-property: color ease;
             transition-duration: .45s;            
         }
-    
+
 }
