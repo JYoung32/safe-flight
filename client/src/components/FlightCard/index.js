@@ -1,5 +1,4 @@
 import React from "react";
-import "./style.css";
 import "./style.scss";
 import { Card, Button, CardHeader, CardFooter, CardBody, CardTitle, CardText } from 'reactstrap';
 
@@ -31,13 +30,13 @@ class FlightCard extends React.Component {
     return (
     <div>
       <Card className="card m-4">
-        <CardHeader className= "cardhead">Flight Name</CardHeader>
-        <CardBody className="cardbody">
-          <CardTitle>American Airlines</CardTitle>
-      <CardText>Price {this.state.price.total}</CardText>
+        <CardHeader className= "cardHead">Flight Name</CardHeader>
+        <CardBody className="cardBody">
+          <CardTitle className="cardTitle">American Airlines</CardTitle>
+      <CardText className="cardText">Price {this.state.price.total}</CardText>
       {/* {this.state.service.segments.map(segment => <CardText>{segment[0].flightSegment.departure.iataCode}</CardText>)} */}
         </CardBody>
-        <CardFooter>Safe Flights</CardFooter>
+        <CardFooter className="cardFoot">Safe Flights</CardFooter>
       </Card>
       </div>
     );

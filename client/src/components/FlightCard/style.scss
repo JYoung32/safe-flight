@@ -30,10 +30,31 @@ $malbec: #351f39;
 
 .card{
     
-    background-color: $cream1;
+    background-color: $white;
     color: $malbec;
     border-radius:0px;
     font-family: 'Nunito', sans-serif;
 
+}
+
+.cardHead{
+    font-weight: bold;
+    background-color: $malbec;
+    color: $cream1
+}
+.cardBody{
+    background-color: $white;
+    color: $jacaranda
+
+}
+
+.cardTitle{
+    box-shadow: 1px 1px 3px $malbec;
+}
+.cardText{
+    font-weight: thin;
+}
+.cardFoot{
+    background-color: $orange1;
 }
 
