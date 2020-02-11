@@ -27,17 +27,6 @@ $bolivia: #709fb0;
 $jacaranda: #726a95;
 $malbec: #351f39;
 
-
-
-
-
-
-
-.container{
-    margin: 0;
-
-}
-
 .jumbo{
     background-color: rgba(255, 255, 255, 0.449);
     color: $malbec;
@@ -47,6 +36,7 @@ $malbec: #351f39;
     background-size: cover;
     background-repeat: no-repeat;
     box-shadow: 2px 5px 10px $violet2;
+    font-family: 'Nunito', sans-serif;
 }
 
 
@@ -64,8 +54,11 @@ $malbec: #351f39;
  transition-duration: .35s;  
 
 }
-body{
+
+
+.body{
     background-color: $white;
+    font-family: 'Nunito', sans-serif;
     
 }
 
@@ -83,7 +76,6 @@ body{
 }
 .form-control:focus{
     border-color: #cccccc;
-    -webkit-box-shadow: none;
-    box-shadow: none;
+    
 }
 
