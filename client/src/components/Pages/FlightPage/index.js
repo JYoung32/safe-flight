@@ -32,6 +32,11 @@ class FlightPage extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
+        console.log(this.state.startDate)
+        if (this.state.origin === "" || this.state.destination === "" || this.state.startDate === undefined || this.state.returnDate === undefined || this.state.startDate === null || this.state.returnDate === null){
+            console.log("this dont work")
+            return false
+        }
         console.log("hello handle submit click");
         //payload of the flight info entered
         const payload = {
