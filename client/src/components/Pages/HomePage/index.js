@@ -35,12 +35,16 @@ class HomePage extends React.Component {
             password: this.state.password
         };
 
-        if(payload.password === confirmPassword){
+        if (this.state.fullName === "" || this.state.email === "" || this.state.password === "" || this.state.confirmPassword === "") {
+
+            console.log("Please fill in all Registration Fields");
+
+        } else if (payload.password === confirmPassword){
             //Post route to save new registered user
             console.log("matched");
             console.log(payload);
 
-            API.registerUser(payload);
+            API.registerUser(payload, this.props.history);
 
         } else {
             //error on password not matching
@@ -60,7 +64,12 @@ class HomePage extends React.Component {
 
         console.log(payload);
         //joe - history is how what you'll use to switch pages
-        API.loginUser(payload, this.props.history);
+        if (this.state.loginEmail === "" || this.state.loginPassword === "") {
+            console.log("Please fill in all Sign In fields")
+        } else {
+            API.loginUser(payload, this.props.history);
+        }
+        
         
     };
 

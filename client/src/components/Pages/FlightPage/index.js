@@ -1,19 +1,25 @@
 import React from "react";
+<<<<<<< HEAD
 import "./style.scss";
 import { Jumbotron, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { DateRangePicker } from 'react-dates';
 import API from "../../../utils/API";
 import FlightCard from "../../FlightCard"
+=======
+import { Jumbotron, Button, Form, FormGroup, Label, Input, Card, CardTitle, CardText, CardHeader, CardFooter, CardBody } from 'reactstrap';
+import { DateRangePicker } from 'react-dates';
+import API from "../../../utils/API";
+import { Redirect } from 'react-router-dom';
+>>>>>>> d58281bb5eff6cc5740875dcaaa9fcc1e530aa42
 
 let moment = require('moment');
 moment().format();
-
-
 
 class FlightPage extends React.Component {
 
     state = {
         loggedIn: "",
+        redirect: false,
         origin: "",
         destination: "",
         departure: "",
@@ -44,6 +50,7 @@ class FlightPage extends React.Component {
         };
         console.log(payload);
 
+<<<<<<< HEAD
         API.getHotel(payload.destination, payload.departure, payload.returnDate)
             .then(res => {
                 console.log(res);
@@ -59,6 +66,41 @@ class FlightPage extends React.Component {
             .catch(() => {
                 console.log('Error sending the payload to the server')
             });;
+=======
+        // API.getHotel(payload.destination, payload.departure, payload.returnDate)
+        // .then(res => {
+        //     console.log(res);
+        // })
+        // .catch(() => {
+        //     console.log('Error sending the payload to the server')
+        // });
+
+        API.getFlights(payload.origin, payload.destination, payload.departure, payload.returnDate)
+        .then(data => {
+            console.log(data);
+            this.setState({
+                flights: data.data
+            });
+            console.log(this.state.flights);
+        })
+        .catch(() => {
+            console.log('Error sending the payload to the server')
+        });;
+>>>>>>> d58281bb5eff6cc5740875dcaaa9fcc1e530aa42
+    };
+
+    setRedirect = () => {
+        console.log('redirect clicked');
+        this.setState({
+            redirect: true
+        })
+    };
+
+    handleRedirect = () => {
+        console.log('redirect clicked');
+        if (this.state.redirect) {
+            return <Redirect to='/' />
+        }
     };
 
     componentDidMount() {
@@ -69,7 +111,24 @@ class FlightPage extends React.Component {
     render() {
 
         if (!this.state.loggedIn) {
+<<<<<<< HEAD
             return <div className="text-center">Not Logged In</div>
+=======
+            return ( 
+                <div className="text-center container mt-3">
+                    {this.handleRedirect()}
+                    <Card>
+                        <CardHeader tag="h3">You Are Not Logged In!</CardHeader>
+                        <CardBody>
+                            <CardText>If you would like to view our page, please click the button below to sign in or register.</CardText>
+                            <CardText>Thank You!</CardText>
+                            <Button onClick={this.setRedirect}>Register / Sign In</Button>
+                        </CardBody>
+                        <CardFooter className="text-muted">Destination Estimation</CardFooter>
+                    </Card>
+                </div> 
+            )
+>>>>>>> d58281bb5eff6cc5740875dcaaa9fcc1e530aa42
         }
 
         return (
@@ -105,8 +164,13 @@ class FlightPage extends React.Component {
                                 />
                             </FormGroup>
                         </div>
+<<<<<<< HEAD
 
                         <DateRangePicker className="calendar"
+=======
+                        
+                        <DateRangePicker
+>>>>>>> d58281bb5eff6cc5740875dcaaa9fcc1e530aa42
                             startDate={this.state.startDate} // momentPropTypes.momentObj or null,
                             startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
                             endDate={this.state.endDate} // momentPropTypes.momentObj or null,
