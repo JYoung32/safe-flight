@@ -1,7 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Card, CardBody, Container, Input, Form, FormGroup, Label } from 'reactstrap';
 import API from '../../../utils/API'
+import DangerAlert from '../../Alert'
 
 class HomePage extends React.Component {
     state = {
@@ -11,7 +12,12 @@ class HomePage extends React.Component {
         confirmPassword: "",
         loginEmail: "",
         loginPassword: ""
+        // show: false
     };
+
+    alert(){
+        const [visible, setVisible] = useState(true);
+    }
 
     handleChange = (event) => {
         const target = event.target;
@@ -25,7 +31,7 @@ class HomePage extends React.Component {
     
     handleRegistration = (event) => {
         event.preventDefault();
-        console.log("Submit button clicked");
+        console.log("registration button clicked");
 
         const confirmPassword = this.state.confirmPassword;
         const payload = {
@@ -36,8 +42,7 @@ class HomePage extends React.Component {
 
         if (this.state.fullName === "" || this.state.email === "" || this.state.password === "" || this.state.confirmPassword === "") {
 
-            alert("Please fill in all Registration Fields");
-
+            alert("Please fill in all Registration Fields")
         } else if (payload.password === confirmPassword){
             //Post route to save new registered user
             console.log("matched");
@@ -64,8 +69,9 @@ class HomePage extends React.Component {
         //joe - history is how what you'll use to switch pages
         if (this.state.loginEmail === "" || this.state.loginPassword === "") {
             alert("Please fill in all Sign In fields");
-        } else {
+        }else{
             API.loginUser(payload, this.props.history);
+            
         }    
     };
 
@@ -131,6 +137,8 @@ class HomePage extends React.Component {
                                         onClick={this.handleRegistration}>
                                             Register
                                     </Button>
+                                    {/* <DangerAlert></DangerAlert> */}
+                                    
                                 </Form>
                             </CardBody>
                         </Card>
