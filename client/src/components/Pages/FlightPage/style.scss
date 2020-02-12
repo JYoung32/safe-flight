@@ -35,6 +35,7 @@ $malbec: #351f39;
     background-size: cover;
     background-repeat: no-repeat;
     box-shadow: 2px 5px 10px $violet2;
+    font-family: 'Nunito', sans-serif;
 }
 
 .btn {
@@ -44,9 +45,9 @@ $malbec: #351f39;
 }
 
 .btn:hover{
- background-color: $azulverde;
- color: $malbec;
- border-color: $azulverde;
+ background-color: $malbec;
+ color: $ivory;
+ border-color: $violet3;
  cursor: pointer;
  transition-property: background-color ease;
  transition-duration: .35s;  
@@ -55,6 +56,7 @@ $malbec: #351f39;
 
 body{
     background-color: $white;
+    font-family: 'Nunito', sans-serif;
     
 }
 
@@ -73,7 +75,6 @@ body{
 
 .form-control:focus{
     border-color: #cccccc;
-    -webkit-box-shadow: none;
-    box-shadow: none;
+    
 }
 

@@ -27,9 +27,9 @@ $jacaranda: #726a95;
 $malbec: #351f39;
 
 .nav{
-
     background-color: $malbec;
-    border-bottom: 3px solid $jacaranda; 
+    // border-bottom: 3px solid $jacaranda; 
+    box-shadow: -3px 5px 5px $violet2;
     color: $jacaranda;
      /* unvisited link */
         a:link {
