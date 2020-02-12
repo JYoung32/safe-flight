@@ -100,9 +100,9 @@ class FlightPage extends React.Component {
         return (
             <div>
 
-            <Jumbotron className="text-center jumbo">
-                <div className="container col-12 text-center">
-                    <h1 className="display-4">Choose Your Destination...</h1>
+            <Jumbotron className="text-center jumbo animated zoomInUp ">
+                <div className="container col-12 text-center animated fadeIn  slow delay-1s">
+                    <h1 className="display-4 animated pulse delay-3s">Choose Your Destination...</h1>
                     <h3 className="lead">We will show ONLY the SAFEST flight options </h3>
                     <hr className="my-2" />
                     <Form>
