@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito:200,200i,400,600,800&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap');
 
 //Color Palette Variables
 $white : #F5F8f7;
-$cream1: #f7efd2;
-$cream2: #f4ecc8;
+$cream1: #fffef8;
+$cream2: #f3eed9;
 $cream3: #f0e6c2;
 $cream4: #e5c09a;
 $green1: #98b9b7;
@@ -28,12 +28,59 @@ $bolivia: #709fb0;
 $jacaranda: #726a95;
 $malbec: #351f39;
 
-.card{
-    
-    background-color: $cream1;
+
+
+.flightCard{    
+    background: rgb(83,77,108);
+    background: linear-gradient(165deg, rgba(83,77,108,1) 0%, rgba(114,106,149,1) 1%, rgba(114,137,132,1) 3%, rgba(146,177,175,1) 11%, rgba(173,208,198,1) 30%, rgba(218,243,236,1) 72%, rgba(245,248,247,0.5290849616213673) 100%);
+    width: 75%;
+    margin: 0 0 25px 0;
     color: $malbec;
-    border-radius:0px;
-    font-family: 'Nunito', sans-serif;
+    border: none;
+    font-family: 'Open Sans Condensed', sans-serif;
+    box-shadow: 5px 5px 10px $orange4;
+}
+
+// .cardhead{
+//     height: 5px;
+//     font-weight: bold;
+//     background-color: $violet4
+// }
+.cardbody{
+    height: 85%;
+    margin-bottom:20px;
+    margin-right:35px;
+    // background-color: $azulverde;
+    color: $violet4;
+   
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: thin;
 
 }
 
+.title {
+
+    font-weight: bold;  
+    font-size: 24px;  
+    margin-bottom: .45rem;
+    }
+
+.departing, .arriving {
+
+ font-style: italic;
+
+}
+
+.departing {
+    margin-left: 15px;
+    margin-bottom: 0px;
+}
+
+.arriving{
+    margin-left: 20px;
+}
+
+.dollar {
+    text-align: right;
+    font-size: 20px;
+}
