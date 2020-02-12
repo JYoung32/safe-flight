@@ -60,7 +60,6 @@ class FlightCard extends React.Component {
 
     console.log(newTime1, newTime2, newTime3, newTime4);
 
-
   }
 
   componentDidMount() {
