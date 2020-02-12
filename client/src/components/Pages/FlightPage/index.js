@@ -45,14 +45,14 @@ class FlightPage extends React.Component {
             departure: this.state.startDate.format("YYYY-MM-DD"),
             returnDate: this.state.endDate.format("YYYY-MM-DD")
         };
-        console.log(payload);
+        //console.log(payload);
 
         API.getFlights(payload.origin, payload.destination, payload.departure, payload.returnDate)
         .then(results => {
             this.setState({
                 flights: results.data.data
             });
-            console.log(this.state.flights);
+            //console.log(this.state.flights);
         })
         .catch(() => {
             console.log('Error sending the payload to the server')
