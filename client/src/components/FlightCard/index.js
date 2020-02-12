@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.scss";
 import { Card, Button, CardHeader, CardFooter, CardBody, CardTitle, CardText } from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class FlightCard extends React.Component {
   state = {
@@ -70,19 +71,25 @@ class FlightCard extends React.Component {
     return (
       <div>
         <Card className="card m-4">
-          <CardHeader className= "cardhead text-center">Flight Info</CardHeader>
+          {/* <CardHeader className= "cardhead text-center"></CardHeader> */}
             <CardBody className="cardbody">
-              <CardTitle>Departing Flight: "{this.state.outboundFlightInfo.carrierCode} {this.state.outboundFlightInfo.number}"</CardTitle>
-                <CardText>Departing from: "{this.state.outboundFlightTakeoff.iataCode} at {this.state.outboundTakeoffTime}"</CardText>
-                <CardText>Arriving at: "{this.state.outboundFlightLanding.iataCode} at {this.state.outboundLandingTime}"</CardText> 
+              <CardTitle className="title">
+                <FontAwesomeIcon icon="plane-departure" />
+                DEPARTING Flight: {this.state.outboundFlightInfo.carrierCode} {this.state.outboundFlightInfo.number}</CardTitle>
+                <CardText className="departing">Departing from: {this.state.outboundFlightTakeoff.iataCode} at {this.state.outboundTakeoffTime}</CardText>
+                <CardText className="arriving">Arriving at: {this.state.outboundFlightLanding.iataCode} at {this.state.outboundLandingTime}</CardText> 
               <hr></hr>
-              <CardTitle>Returning Flight: "{this.state.inboundFlightInfo.carrierCode} {this.state.inboundFlightInfo.number}"</CardTitle>
-                <CardText>Departing from: "{this.state.inboundFlightTakeoff.iataCode} at {this.state.inboundTakeoffTime}"</CardText>
-                <CardText>Arriving at: "{this.state.inboundFlightLanding.iataCode} at {this.state.inboundLandingTime}"</CardText>
+              <CardTitle className="title">
+              <FontAwesomeIcon icon="plane-arrival" />
+              RETURNING Flight: {this.state.inboundFlightInfo.carrierCode} {this.state.inboundFlightInfo.number}</CardTitle>
+                <CardText className="departing">Departing from: {this.state.inboundFlightTakeoff.iataCode} at {this.state.inboundTakeoffTime}</CardText>
+                <CardText className="arriving">Arriving at: {this.state.inboundFlightLanding.iataCode} at {this.state.inboundLandingTime}</CardText>
               <hr></hr>
-                <CardText>Price: $ {this.state.price.total}</CardText>
+                <CardText className="dollar">
+                  <FontAwesomeIcon className="m-4" icon="money-bill-wave" />
+                Price: $ {this.state.price.total}</CardText>
             </CardBody>
-          <CardFooter className="text-center">Safe Flights</CardFooter>
+          {/* <CardFooter className="text-center">Safe Flights</CardFooter>  //probably dont need this footer */}
         </Card>
       </div>
     );
