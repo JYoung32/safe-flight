@@ -28,7 +28,7 @@ const Navigation = (props) => {
     return (
         <div>
             <Navbar className="nav" expand="md">
-            <FontAwesomeIcon icon="map-marked-alt" />
+            <FontAwesomeIcon icon="plane" />
                 <NavbarBrand href="/">Safe Flight</NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
