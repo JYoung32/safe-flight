@@ -123,7 +123,6 @@ class FlightPage extends React.Component {
                                     <option value="LAX">Los Angeles, California, USA</option>
                                     <option value="ORD">Chicago, Illinois, USA</option>
                                     <option value="LHR">Hillingdon, London, UK</option>
-                                    <option value="PVG">Pudong, Shanghai, China</option>
                                     <option value="HKG">Chek Lap Kok, Islands, New Territories, China</option>
                                     <option value="CDG">Roissy-en-France, Île-de-France, France</option>
                                     <option value="DFW">Dallas-Fort Worth, Texas, USA</option>
@@ -156,7 +155,6 @@ class FlightPage extends React.Component {
                                     <option value="LAX">Los Angeles, California, USA</option>
                                     <option value="ORD">Chicago, Illinois, USA</option>
                                     <option value="LHR">Hillingdon, London, UK</option>
-                                    <option value="PVG">Pudong, Shanghai, China</option>
                                     <option value="HKG">Chek Lap Kok, Islands, New Territories, China</option>
                                     <option value="CDG">Roissy-en-France, Île-de-France, France</option>
                                     <option value="DFW">Dallas-Fort Worth, Texas, USA</option>
