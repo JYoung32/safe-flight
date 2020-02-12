@@ -69,7 +69,7 @@ class FlightCard extends React.Component {
   render() {
     return (
       <div>
-        <Card className="flightCard m-4">
+        <Card className="flightCard animated slideInRight m-4">
           {/* <CardHeader className= "cardhead text-center"></CardHeader> */}
             <CardBody className="cardbody">
               <CardTitle className="title">
