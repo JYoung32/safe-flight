@@ -46,16 +46,14 @@ $malbec: #351f39;
 //     font-weight: bold;
 //     background-color: $violet4
 // }
+
 .cardbody{
     height: 85%;
-    margin-bottom:20px;
-    margin-right:35px;
+    padding: 1rem .5rem .25rem 1rem;
     // background-color: $azulverde;
-    color: $violet4;
-   
+    color: $violet4;   
     font-family: 'Open Sans Condensed', sans-serif;
     font-weight: thin;
-
 }
 
 .title {
@@ -72,15 +70,20 @@ $malbec: #351f39;
 }
 
 .departing {
-    margin-left: 15px;
+    margin-left: 32px;
     margin-bottom: 0px;
 }
 
 .arriving{
-    margin-left: 20px;
+    margin-left: 36px;
 }
 
 .dollar {
     text-align: right;
     font-size: 20px;
+}
+
+.fa-icon{
+    color: $jacaranda;
+    padding-right: .25rem;
 }

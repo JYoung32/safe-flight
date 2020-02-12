@@ -103,6 +103,7 @@ class FlightPage extends React.Component {
             <Jumbotron className="text-center jumbo">
                 <div className="container col-12 text-center">
                     <h1 className="display-4">Choose Your Destination...</h1>
+                    <h3 className="lead">We will show ONLY the SAFEST flight options </h3>
                     <hr className="my-2" />
                     <Form>
                         <div className="row m-2">
@@ -210,7 +211,7 @@ class FlightPage extends React.Component {
                     <Button
                         onClick={this.handleSubmit}
                         className="m-3"
-                        color="primary">
+                        >
                         Search Flights
                     </Button>
                 </div>

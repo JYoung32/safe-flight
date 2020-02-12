@@ -73,20 +73,20 @@ class FlightCard extends React.Component {
           {/* <CardHeader className= "cardhead text-center"></CardHeader> */}
             <CardBody className="cardbody">
               <CardTitle className="title">
-                <FontAwesomeIcon icon="plane-departure" />
+                <FontAwesomeIcon className= "fa-icon" icon="plane-departure" />
                 DEPARTING Flight: {this.state.outboundFlightInfo.carrierCode} {this.state.outboundFlightInfo.number}</CardTitle>
                 <CardText className="departing">Departing from: {this.state.outboundFlightTakeoff.iataCode} at {this.state.outboundTakeoffTime}</CardText>
                 <CardText className="arriving">Arriving at: {this.state.outboundFlightLanding.iataCode} at {this.state.outboundLandingTime}</CardText> 
               <hr></hr>
               <CardTitle className="title">
-              <FontAwesomeIcon icon="plane-arrival" />
+              <FontAwesomeIcon className= "fa-icon" icon="plane-arrival" />
               RETURNING Flight: {this.state.inboundFlightInfo.carrierCode} {this.state.inboundFlightInfo.number}</CardTitle>
                 <CardText className="departing">Departing from: {this.state.inboundFlightTakeoff.iataCode} at {this.state.inboundTakeoffTime}</CardText>
                 <CardText className="arriving">Arriving at: {this.state.inboundFlightLanding.iataCode} at {this.state.inboundLandingTime}</CardText>
               <hr></hr>
                 <CardText className="dollar">
-                  <FontAwesomeIcon className="m-4" icon="money-bill-wave" />
-                Price: $ {this.state.price.total}</CardText>
+                  <FontAwesomeIcon className="fa-icon" icon="money-bill-wave" />
+                Price: ${this.state.price.total}</CardText>
             </CardBody>
           {/* <CardFooter className="text-center">Safe Flights</CardFooter>  //probably dont need this footer */}
         </Card>
