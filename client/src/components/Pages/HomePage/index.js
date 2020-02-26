@@ -49,6 +49,9 @@ class HomePage extends React.Component {
             console.log(payload);
 
             API.registerUser(payload, this.props.history);
+            API.validateToken(function(){
+                console.log('Token Validation processed');
+            });
 
         } else {
             //error on password not matching
@@ -73,7 +76,7 @@ class HomePage extends React.Component {
             API.loginUser(payload, this.props.history);
             API.validateToken(function(){
                 console.log('Token Validation processed');
-              });
+            });
             
         }    
     };
