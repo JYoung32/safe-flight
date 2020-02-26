@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import { Link } from 'react-router-dom;
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Card, CardBody, Container, Input, Form, FormGroup, Label } from 'reactstrap';
 import API from '../../../utils/API'
@@ -15,7 +16,7 @@ class HomePage extends React.Component {
         // show: false
     };
 
-    alert(){
+    alert() {
         const [visible, setVisible] = useState(true);
     }
 
@@ -28,7 +29,7 @@ class HomePage extends React.Component {
             [name]: value
         });
     };
-    
+
     handleRegistration = (event) => {
         event.preventDefault();
         console.log("registration button clicked");
@@ -43,7 +44,7 @@ class HomePage extends React.Component {
         if (this.state.fullName === "" || this.state.email === "" || this.state.password === "" || this.state.confirmPassword === "") {
 
             alert("Please fill in all Registration Fields")
-        } else if (payload.password === confirmPassword){
+        } else if (payload.password === confirmPassword) {
             //Post route to save new registered user
             console.log("matched");
             console.log(payload);
@@ -53,7 +54,7 @@ class HomePage extends React.Component {
         } else {
             //error on password not matching
             alert("Passwords Not matched");
-        }    
+        }
     };
 
     handleLogin = (event) => {
@@ -69,10 +70,10 @@ class HomePage extends React.Component {
         //joe - history is how what you'll use to switch pages
         if (this.state.loginEmail === "" || this.state.loginPassword === "") {
             alert("Please fill in all Sign In fields");
-        }else{
+        } else {
             API.loginUser(payload, this.props.history);
-            
-        }    
+
+        }
     };
 
 
@@ -90,55 +91,55 @@ class HomePage extends React.Component {
                                 <Form>
                                     <FormGroup>
                                         <Label for="fullName">Full Name</Label>
-                                        <Input type="text" 
-                                        id="fullName" 
-                                        name="fullName" 
-                                        className="form-control text-center"
-                                        placeholder="Full Name"
-                                        value={this.state.fullName}
-                                        onChange={this.handleChange}
+                                        <Input type="text"
+                                            id="fullName"
+                                            name="fullName"
+                                            className="form-control text-center"
+                                            placeholder="Full Name"
+                                            value={this.state.fullName}
+                                            onChange={this.handleChange}
                                         ></Input>
                                     </FormGroup>
                                     <FormGroup>
                                         <Label for="email">Email Address</Label>
-                                        <Input type="email" 
-                                        id="email" 
-                                        name="email" 
-                                        className="form-control text-center"
-                                        placeholder="Email address"
-                                        value={this.state.email}
-                                        onChange={this.handleChange}
+                                        <Input type="email"
+                                            id="email"
+                                            name="email"
+                                            className="form-control text-center"
+                                            placeholder="Email address"
+                                            value={this.state.email}
+                                            onChange={this.handleChange}
                                         ></Input>
                                     </FormGroup>
                                     <FormGroup>
                                         <Label for="password">Password</Label>
-                                        <Input type="password" 
-                                        id="password" 
-                                        name="password" 
-                                        className="form-control text-center"
-                                        placeholder="Create Password"
-                                        value={this.state.password}
-                                        onChange={this.handleChange}
+                                        <Input type="password"
+                                            id="password"
+                                            name="password"
+                                            className="form-control text-center"
+                                            placeholder="Create Password"
+                                            value={this.state.password}
+                                            onChange={this.handleChange}
                                         ></Input>
                                     </FormGroup>
                                     <FormGroup>
                                         <Label for="confirmPassword">Confirm Password</Label>
-                                        <Input type="password" 
-                                        id="confirmPassword"
-                                        name="confirmPassword"
-                                        className="form-control text-center"
-                                        placeholder="Confirm Password"
-                                        value={this.state.confirmPassword}
-                                        onChange={this.handleChange} 
+                                        <Input type="password"
+                                            id="confirmPassword"
+                                            name="confirmPassword"
+                                            className="form-control text-center"
+                                            placeholder="Confirm Password"
+                                            value={this.state.confirmPassword}
+                                            onChange={this.handleChange}
                                         ></Input>
                                     </FormGroup>
-                                    <Button type="submit" 
+                                    <Button type="submit"
                                         className="btn btn-primary btn-block mt-5"
                                         onClick={this.handleRegistration}>
-                                            Register
+                                        Register
                                     </Button>
                                     {/* <DangerAlert></DangerAlert> */}
-                                    
+
                                 </Form>
                             </CardBody>
                         </Card>
@@ -146,37 +147,43 @@ class HomePage extends React.Component {
                     <div className="col-md-6 m-auto">
                         <Card>
                             <CardBody>
-                            <h1 className="text-center mb-3">
-                                <FontAwesomeIcon icon="user" /> Sign In
+                                <h1 className="text-center mb-3">
+                                    <FontAwesomeIcon icon="user" /> Sign In
                             </h1>
-                            <Form>
-                                <FormGroup>
-                                    <Label for="loginEmail">Email</Label>
-                                    <Input type="email"
-                                    id="loginEmail"
-                                    name="loginEmail"
-                                    className="form-control text-center"
-                                    placeholder="Enter Email"
-                                    value={this.state.loginEmail}
-                                    onChange={this.handleChange} 
-                                    ></Input>
-                                </FormGroup>
-                                <FormGroup>
-                                    <Label for="loginPassword">Password</Label>
-                                    <Input type="password"
-                                    id="loginPassword"
-                                    name="loginPassword"
-                                    className="form-control text-center"
-                                    placeholder="Enter Password"
-                                    value={this.state.loginPassword}
-                                    onChange={this.handleChange} 
-                                    ></Input>
-                                </FormGroup>
-                                <Button type="submit"
-                                    className="btn btn-primary btn-block mt-5"
-                                    onClick={this.handleLogin}>
+                                <Form>
+                                    <FormGroup>
+                                        <Label for="loginEmail">Email</Label>
+                                        <Input type="email"
+                                            id="loginEmail"
+                                            name="loginEmail"
+                                            className="form-control text-center"
+                                            placeholder="Enter Email"
+                                            value={this.state.loginEmail}
+                                            onChange={this.handleChange}
+                                        ></Input>
+                                    </FormGroup>
+                                    <FormGroup>
+                                        <Label for="loginPassword">Password</Label>
+                                        <Input type="password"
+                                            id="loginPassword"
+                                            name="loginPassword"
+                                            className="form-control text-center"
+                                            placeholder="Enter Password"
+                                            value={this.state.loginPassword}
+                                            onChange={this.handleChange}
+                                        ></Input>
+                                    </FormGroup>
+                                    <Button type="submit"
+                                        className="btn btn-primary btn-block mt-5"
+                                        onClick={this.handleLogin}>
                                         Sign In
                                 </Button>
+
+                                    <p className=" small  mt-3 text-center">
+                                        Not a member yet?
+                                    <Link to="/register"> Register
+                                    here</Link>!
+                                    </p>
                                 </Form>
                             </CardBody>
                         </Card>
