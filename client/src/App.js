@@ -14,6 +14,8 @@ library.add(faCheckSquare, faPlane, faPlaneArrival, faPlaneDeparture, faCalculat
 
 
 function App() {
+  localStorage.clear();
+  
   API.validateToken(function(){
     console.log('Token Validation processed');
   })

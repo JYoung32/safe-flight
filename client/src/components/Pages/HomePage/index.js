@@ -71,6 +71,9 @@ class HomePage extends React.Component {
             alert("Please fill in all Sign In fields");
         }else{
             API.loginUser(payload, this.props.history);
+            API.validateToken(function(){
+                console.log('Token Validation processed');
+              });
             
         }    
     };
