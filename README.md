@@ -14,6 +14,8 @@
 
 ### Safe Flight is a one-stop platform for travelers looking to book a flight on an airline that is safe, secure and is not prone to malfunctions. 
 
+![GIF example](./public/safe-flight-example.gif)
+
 ## Deployed Page
 
 #### [Safe Flight Heroku Deployed Page](https://floating-everglades-15450.herokuapp.com/)
