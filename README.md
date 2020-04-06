@@ -20,6 +20,10 @@
 
 #### [Safe Flight Heroku Deployed Page](https://floating-everglades-15450.herokuapp.com/)
 
+ Sign up on the app or use this test account to give it a try!   
+ Username: example@example.com  
+ Password: password1  
+ 
 ----
 
 ## Updates 
