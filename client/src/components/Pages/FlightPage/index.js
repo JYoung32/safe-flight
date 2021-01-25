@@ -32,7 +32,7 @@ class FlightPage extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        console.log(this.state.startDate)
+        console.log(`this is Start Date = ${this.state.startDate}`)
         if (this.state.origin === "" || this.state.destination === "" || this.state.startDate === undefined || this.state.returnDate === undefined || this.state.startDate === null || this.state.returnDate === null){
             alert("this dont work")
             return false
@@ -45,13 +45,14 @@ class FlightPage extends React.Component {
             departure: this.state.startDate.format("YYYY-MM-DD"),
             returnDate: this.state.endDate.format("YYYY-MM-DD")
         };
-        //console.log(payload);
+        console.log(payload);
 
         API.getFlights(payload.origin, payload.destination, payload.departure, payload.returnDate)
         .then(results => {
-            this.setState({
-                flights: results.data.data
-            });
+            console.log(results)
+            // this.setState({
+            //     flights: results.data.data
+            // });
             //console.log(this.state.flights);
         })
         .catch(() => {
@@ -190,7 +191,7 @@ class FlightPage extends React.Component {
                     </Button>
                 </div>
             </Jumbotron>
-            {this.state.flights.map(flight => <FlightCard key={flight.id} flight= {flight}/>)}
+            {/* {this.state.flights.map(flight => <FlightCard key={flight.id} flight= {flight}/>)} */}
             </div>
 
             

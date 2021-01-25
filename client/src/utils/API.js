@@ -26,6 +26,7 @@ export default {
             })
             .then(function(data){
                 localStorage.setItem('access_token', data.data.access_token);
+                console.log("amaToken set to LS");
                 return 'done'
             })
             .catch(function(err){
@@ -92,9 +93,11 @@ export default {
     },
 
     getFlights: function (origin, destination, departure, returnDate) {
+        console.log(`origin: ${origin}
+        destination: ${destination}`)
     return axios({
             method:'GET',
-            url: `https://test.api.amadeus.com/v1/shopping/flight-offers?origin=${origin}&destination=${destination}&departureDate=${departure}&returnDate=${returnDate}&currency=USD&nonStop=true`,
+            url: `https://cors-anywhere.herokuapp.com/https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${origin}&destinationLocationCode=${destination}&departureDate=${departure}&returnDate=${returnDate}&currencyCode=USD&nonStop=true&adults=1`,
             headers:{
                 common:{
                     Authorization: 'Bearer ' + localStorage.getItem('access_token')
