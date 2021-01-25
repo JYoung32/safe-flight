@@ -21,6 +21,7 @@ class FlightCard extends React.Component {
 
   newFlightInfo = () => {
     console.log(this.props)
+    console.log(this.props.flight.itineraries[0].segments[0].departure.iataCode)
   }
 
   // objDectructure = () => {
@@ -78,19 +79,19 @@ class FlightCard extends React.Component {
             <CardBody className="cardbody">
               <CardTitle className="title">
                 <FontAwesomeIcon className= "fa-icon" icon="plane-departure" />
-                DEPARTING Flight: {this.state.outboundFlightInfo.carrierCode} {this.state.outboundFlightInfo.number}</CardTitle>
-                <CardText className="departing">Departing from: {this.state.outboundFlightTakeoff.iataCode} at {this.state.outboundTakeoffTime}</CardText>
-                <CardText className="arriving">Arriving at: {this.state.outboundFlightLanding.iataCode} at {this.state.outboundLandingTime}</CardText> 
+                DEPARTING Flight: {this.props.flight.itineraries[0].segments[0].carrierCode} {this.props.flight.itineraries[0].segments[0].number}</CardTitle>
+                <CardText className="departing">Departing from: {this.props.flight.itineraries[0].segments[0].departure.iataCode} at {this.props.flight.itineraries[0].segments[0].departure.at}</CardText>
+                <CardText className="arriving">Arriving at: {this.props.flight.itineraries[0].segments[0].arrival.iataCode} at {this.props.flight.itineraries[0].segments[0].arrival.at}</CardText> 
               <hr></hr>
               <CardTitle className="title">
               <FontAwesomeIcon className= "fa-icon" icon="plane-arrival" />
-              RETURNING Flight: {this.state.inboundFlightInfo.carrierCode} {this.state.inboundFlightInfo.number}</CardTitle>
-                <CardText className="departing">Departing from: {this.state.inboundFlightTakeoff.iataCode} at {this.state.inboundTakeoffTime}</CardText>
-                <CardText className="arriving">Arriving at: {this.state.inboundFlightLanding.iataCode} at {this.state.inboundLandingTime}</CardText>
+              RETURNING Flight: {this.props.flight.itineraries[1].segments[0].carrierCode} {this.props.flight.itineraries[1].segments[0].number}</CardTitle>
+                <CardText className="departing">Departing from: {this.props.flight.itineraries[1].segments[0].departure.iataCode} at {this.props.flight.itineraries[1].segments[0].departure.at}</CardText>
+                <CardText className="arriving">Arriving at: {this.props.flight.itineraries[1].segments[0].arrival.iataCode} at {this.props.flight.itineraries[1].segments[0].arrival.at}</CardText>
               <hr></hr>
                 <CardText className="dollar">
                   <FontAwesomeIcon className="fa-icon" icon="money-bill-wave" />
-                Price: ${this.state.price.total}</CardText>
+                Price: ${this.props.flight.price.total} {this.props.flight.price.currency}</CardText>
             </CardBody>
           {/* <CardFooter className="text-center">Safe Flights</CardFooter>  //probably dont need this footer */}
         </Card>
