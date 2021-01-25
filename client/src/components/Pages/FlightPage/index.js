@@ -50,10 +50,10 @@ class FlightPage extends React.Component {
         API.getFlights(payload.origin, payload.destination, payload.departure, payload.returnDate)
         .then(results => {
             console.log(results)
-            // this.setState({
-            //     flights: results.data.data
-            // });
-            //console.log(this.state.flights);
+            this.setState({
+                flights: results.data.data
+            });
+            console.log(this.state.flights);
         })
         .catch(() => {
             console.log('Error sending the payload to the server')
@@ -191,7 +191,7 @@ class FlightPage extends React.Component {
                     </Button>
                 </div>
             </Jumbotron>
-            {/* {this.state.flights.map(flight => <FlightCard key={flight.id} flight= {flight}/>)} */}
+            {this.state.flights.map(flight => <FlightCard key={flight.id} flight= {flight}/>)}
             </div>
 
             
