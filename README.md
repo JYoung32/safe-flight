@@ -73,10 +73,10 @@ In future installments, we plan to allow users to save a flight under their "Tra
 ## Updates
 
 #### Last Update:  
-  02/18/20
+  01/25/2021
 
 #### What was Updated: 
-  I updated the README to be more informative/complete.  It still needs to be worked on, and will continue to be edited along with the project base.
+  Fixed issue with API not working. Flight Results now populate the screen.
 
 ----
 
